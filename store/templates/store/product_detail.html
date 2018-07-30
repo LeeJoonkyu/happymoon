@@ -1,0 +1,66 @@
+{% extends 'base.html'%}
+
+{% block css%}
+  <link rel="stylesheet" href="/static/css/store/css_product_detail.css">
+{% endblock%}
+
+
+{% block main %}
+  <main>
+    <div class="store_nav">
+      <div class="nav_container">
+        <h2 class="nav_left">스토어</h2>
+        <div class="nav_category">
+          <a href="" style="border-bottom:1px solid #000;">생리대</a>
+          <a href=>굿즈</a>
+          <a href=>정기배송</a>
+        </div>
+      </div>
+    </div>
+
+    <!--products_detail-->
+    <div class="product_container">
+      <div class="product_wrap">
+        <div class="photo_container">
+          <div>
+            <img src="/static/images/{{ product.img }}" width=570px;>
+          </div>
+        </div>
+        <div class="spec_container">
+          <h2>{{ product.name }}</h2>
+          <p id="price">{{ product.price }}원</p>
+          <p class="description">{{ product.detail }}</p>
+          <table class="spec">
+            <tbody>
+              <tr><td>월경량</td><td>{{ product.volume }}</td></tr>
+              <tr><td>사이즈</td><td>{{ product.size }}mm</td></tr>
+              <tr><td>제조일자</td><td>{{ product.manufac_date }}</td></tr>
+              <tr><td>사용기한</td><td>{{ product.useby_date }}</td></tr>
+              <tr><td>1팩당 개수</td><td>{{ product.quantity }}</td></tr>
+              <tr><td class="ingre">주요성분</td><td class="ingre">{{ product.ingre }}</td></tr>
+            </tbody>
+          </table>
+          
+          <table class="quantity">
+            <tbody><tr>
+              <td class="text">수량</td>
+              <td class="qty">
+                <div class="qty_button">
+                  <input type="button" value="-" class="qty_minus" onfocus="this.blur();">
+                  <input type="number" step="1" min="1" value="1" class="qty_number" size="4" pattern="[0-9]*" inputmode="numeric" readonly="readonly" onfocus="this.blur();">
+                  <input type="button" value="+" class="qty_plus" onfocus="this.blur();">
+                </div>
+              </td>
+            </tr></tbody>
+          </table>
+          
+          <div id="add_to_cart" class="button_cart">
+            <div>장바구니 담기 -</div>
+            <div id="cart_price" class="cart_price">{{ product.price }}*{{ product.order }}원</div>
+          </div>
+
+      </div>
+    </div>
+    <div class="banner_subscription"></div>
+  </main>
+{% endblock %}

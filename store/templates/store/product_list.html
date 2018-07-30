@@ -1,0 +1,36 @@
+{% extends 'base.html'%}
+
+{% block css%}
+  <link rel="stylesheet" href="/static/css/store/css_product_list.css">
+{% endblock%}
+
+
+{% block main %}
+  <main>
+    <div class="store_nav">
+      <div class="nav_container">
+        <h2 class="nav_left">스토어</h2>
+        <div class="nav_category">
+          <a href="" style="border-bottom:1px solid #000;">생리대</a>
+          <a href=>굿즈</a>
+          <a href=>정기배송</a>
+        </div>
+      </div>
+    </div>
+
+    <!--products_list-->
+    <div class="wrap_container">
+      <div class="item_container">
+        
+        {% for product in products %}
+        <a href="{{ product.pk }}" class="item">
+          <img src="/static/images/{{ product.img }}" width=300px;>
+          <p> {{ product.name }} </p>
+          <p> {{ product.price }}원</p>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="banner_subscription"></div>
+  </main>
+{% endblock %}
