@@ -45,3 +45,14 @@ header{
   font-size: 14px;
   color: #495057;
 }
+
+.new_blink {
+  position: absolute;
+  top: -9px;
+  left: 36px;
+  width: 6px;
+  height: 6px;
+  border-radius: 4px;
+  background: #f59f00;
+  animation: blinker 1.5s linear infinite;
+}
