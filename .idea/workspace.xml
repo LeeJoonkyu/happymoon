@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6af7306f-0e21-47de-b147-8041ea6a569b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/happymoon/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/happymoon/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/happymoon/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/happymoon/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/happymoon/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/happymoon/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/models.py" afterDir="false" />
-    </list>
+    <list default="true" id="6af7306f-0e21-47de-b147-8041ea6a569b" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
