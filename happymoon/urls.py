@@ -14,12 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 from store import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('store/pad/', views.product_list),
     path('store/pad/<int:pk>/', views.product_detail),
+    path('subscription/', include('subscription.urls')),
+    path('subscription_detail/', include('subscription.urls')),
+    #     subscription_detail/이부분에 HM-A, HM-B 이렇게 생기는데 이거 어떻게 하지?
 
 ]

@@ -1,0 +1,88 @@
+{% extends 'base.html'%}
+
+{% block css%}
+  <link rel="stylesheet" href="/static/css/subscription/css_subscription_detail.css">
+{% endblock%}
+
+
+{% block main %}
+  <main>
+    <div class="subscription_nav">
+      <div class="nav_container">
+        <h2 class="nav_left">스토어</h2>
+        <div class="nav_category">
+          <a href="" style="border-bottom:1px solid #000;">생리대</a>
+          <a href=>굿즈</a>
+          <a href=>정기배송</a>
+        </div>
+      </div>
+    </div>
+
+    <!--subscriptions_detail-->
+    <div class="subscription_container">
+      <div class="subscription_wrap">
+        <div class="photo_container">
+          <div>
+            <img src="/static/images/{{ type.img }}" width=570px;>
+          </div>
+        </div>
+        <div class="spec_container">
+          <h2>{{ type.type }} 정기배송</h2>
+          <p id="description">{{ type.detail }}</p>
+          <table class="spec">
+            <tbody>
+              <tr><td>월경주기</td>
+                  <td><form><input type="number" name="period_cycle" min="10" max="365"></form></td></tr>
+              <tr><td>배송주기</td>
+                  <td><select name="delivery_cycle">
+                      <option value="">선택해주세요</option>
+                      <option value="1주기마다(28일마다)">1주기마다(28일마다)</option>
+                      <option value="2주기마다(56일마다)">2주기마다(56일마다)</option>
+                      <option value="3주기마다(84일마다)">3주기마다(84일마다)</option>
+                  </select></td></tr>
+              <tr><td>첫 발송일</td>
+                  <td><form><input type="date" name="first_delivery_date"></form></td></tr>
+              <tr><td>옵션 추가</td></tr>
+              <tr><td>생리대</td>
+                  <td><select name="pad">
+                      <option value="">선택해주세요</option>
+                      <option value="중형 1팩 (+1,600원)">중형 1팩(+1,600원)</option>
+                      <option value="대형 1팩 (+1,800원)">대형 1팩(+1,800원)</option>
+                      <option value="롱라이너 1팩 (+2,700원)">롱라이너 1팩(+2,700원)</option>
+                      <option value="오버나이트 1팩 (+1,300원)">오버나이트 1팩(+1,300원)</option>
+                  </select></td></tr>
+              <tr><td>임신테스터</td>
+                  <td><select name="pad">
+                      <option value="">선택해주세요</option>
+                      <option value="센스틱얼리 (+3,500원)">센스틱얼리 (+3,500원)</option>
+                  </select></td></tr>
+            </tbody>
+          </table>
+
+          <table class="order">
+              <tbody>
+              <tr><td>{{ type.type }}</td><td>6,800원</td></tr>
+              </tbody>
+          </table>
+
+          <table class="fee">
+              <tbody>
+              <tr><td>배송비</td><td>무료</td></tr>
+              <tr><td>합계</td><td>{{ type.price }}</td></tr>
+              </tbody>
+          </table>
+
+          <table class="quantity">
+            <tbody>
+            <tr><td>총 수량</td><td>{{ type.type }}({{ type.detail }})</td></tr>
+            </tbody>
+          </table>
+          
+          <div class="button_subscription">
+            <div>주문하기</div>
+          </div>
+
+      </div>
+    </div>
+  </main>
+{% endblock %}

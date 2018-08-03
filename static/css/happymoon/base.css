@@ -15,8 +15,9 @@ main{
   background: #f9f9f5;
 }
 p{
-  margin: 3px 0px;
+  margin: 0px 0px;
   padding: 0px;
+  text-align: center;
 }
 header{
   border-bottom: 1px solid #dee2e6;
