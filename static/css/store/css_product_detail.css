@@ -236,12 +236,12 @@ main{
 }
 .cover_title_container p{
   text-align: center;
-  font-size: 16px;
+  font-size: 18px;
   letter-spacing: 3px;
-  line-height: 130%;
+  line-height: 140%;
 }
 .cover_title_container a{
-  display: inline-block;
+  display: block;
   width: 220px;
   margin: 7px auto;
   border:  1px solid #f59f00;
