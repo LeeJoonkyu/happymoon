@@ -1,7 +1,7 @@
-{% block css%}
+{%block css%}
   <link rel="stylesheet" href="/static/css/login/css_login_main.css">
   <link rel="stylesheet" href="/static/css/login/default.css">
-{% endblock%}
+{%endblock%}
 
 
 {% block main %}
@@ -38,35 +38,34 @@
     <!-- Signup  -->
     <div id="signup" >
       <h2 class="title_center">회원가입</h2>
-      <form id="signup_form" action="" method="post">
+      <form id="signup_form" action="" method="post" onsubmit="return validation()" name="signup">
         {%  csrf_token %}
         <input type="hidden" name="post_type" value="signup">
         <div class="container">
           <p class="container_title">필수 입력</p>
           <!-- User Name Start -->
-          <p id="error_name_len" class="error_message " style="display: none">이름을 2글자 이상 입력해주세요.</p>
+         <span id="name_error" class="error_message"> </span>
           <div class="tooltip">
             <input id="name" name="name" type="text" placeholder="이름" maxlength="20" class="input_default" value="">
-            <span class="tooltiptext">2자 이상 입력해주세요</span>
           </div>
           <!-- User Name End -->
           <!-- E-mail Start -->
 
-          <p id="error_email_format" class="error_message " style="display: none">이메일 형식이 올바르지 않습니다.</p>
-          <p id="error_email_con" class="error_message " style="display: none">앗! '.con'이라니. 이메일 주소를 확인해주세요.</p>
+          <span id="email_error" class="error_message"> </span>
           <div class="tooltip">
             <input id="email" name="email" type="email" placeholder="이메일 (추후 로그인 아이디로 사용)" maxlength="100" class="input_default" value="">
           </div>
           <!-- E-mail End -->
           <!-- Password start -->
+
           <p id="error_password_len" class="error_message " style="display: none">비밀번호를 6자 이상 입력해주세요.</p>
           <div class="tooltip">
+             <span id="password_error" class="error_message"> </span>
             <input id="password" name="password" type="password" placeholder="비밀번호" maxlength="30" class="input_default" value="">
-            <span class="tooltiptext">6자 이상 입력해주세요</span>
           </div>
           <!-- Password End -->
           <!-- Birth Start -->
-          <p id="error_birth_check" class="error_message " style="display: none">생년월일을 모두 선택해주세요.</p>
+          <span id="birth_error" class="error_message"> </span>
           <div class="birth_bar">
             <select id="birth_year" name="birth_year" class="year">
               <option selected disabled>태어난해</option>
@@ -80,9 +79,11 @@
               <option selected disabled>일</option>
               <option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17">17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option><option value="31">31</option>
             </select>
+
           </div>
           <!-- Birth End -->
           <!-- Channel Start -->
+          <span id="channel_error" class="error_message"> </span>
           <p id="error_channel_check" class="error_message " style="display: none">해피문데이를 알게된 경로를 선택해주세요.</p>
           <p id="error_channel_etc_check" class="error_message " style="display: none">기타 사유를 입력해주세요.</p>
           <div class="channel_bar">
@@ -645,7 +646,7 @@
           </div>
           <p id="error_privacy" class="error_message" style="display: none">개인정보 취급방침에 동의해주세요</p>
         </div>
-      <input type="submit" value='회원가입' button type="button" id="button_signup" class="button_next">
+      <button type="submit" id="button_signup" class="button_next">회원가입</button>
       </form>
       <div class="clear"></div>
     </div>
@@ -655,25 +656,47 @@
 
 <script src="/static/js/jquery.js"></script>
 
-<script>function checkSignupForm()
-  {var e=null;
-  if( $("#privacy_check").is(":checked")||($("#error_privacy").show()),
-      $("#terms_check").is(":checked")||($("#error_terms").show()),
-      $("#user_channel").val()||( $("#error_channel_check").show()),
-        $("#birth_year").val()&&$("#birth_month").val()&&$("#birth_day").val()||( $("#error_birth_check").show()),
-  $("#password").val().length<6&&( $("#error_password_len").show()),
-      validateEmail($("#email").val())?$("#email").val().endsWith(".con")&&(e="#email",
-          $("#error_email_con").show()):(e="#email", $("#error_email_format").show()),
-    $("#name").val().length<2&&($("#error_name_len").show()))
-      return!0;
-  else
-      return 0;
-  }
-  function submit(){}$(document).ready(function(){
-                $("#button_signup").click(function(){
-                    if (checkSignupForm() === 0)
-                    $("#signup_form").submit()})});
-</script>
+<	<script>
+
+
+		function validation(){
+
+			var name = document.getElementById('name').value;
+			var password = document.getElementById('password').value;
+			var email = document.getElementById('email').value;
+			var birth_year= document.signup.birth_year;
+			var birth_month = document.signup.birth_month;
+			var birth_day = document.signup.birth_day;
+			var channel = document.signup.channel;
+
+
+			if((name.length <= 2) || (name == "" ) || ((!isNaN(name)))) {
+				document.getElementById('name_error').innerHTML =" 이름을 2글자 이상 입력해주세요.";
+				return false;
+			}
+
+			if(email == "") {
+				document.getElementById('email_error').innerHTML =" 이메일 형식이 올바르지 않습니다.";
+				return false;
+			}
+
+			if((password.length <= 6) || (password == "")) {
+				document.getElementById('password_error').innerHTML =" 비밀번호를 6자 이상 입력해주세요.";
+				return false;
+			}
+
+			if((birth_year.selectedIndex == 0) || (birth_month.selectedIndex == 0) || (birth_day.selectedIndex == 0)) {
+				document.getElementById('birth_error').innerHTML =" 생년월일을 모두 선택해주세요.";
+				return false;
+			}
+
+			if(channel.selectedIndex == 0) {
+          document.getElementById('channel_error').innerHTML = " 해피문데이를 알게된 경로를 선택해주세요.";
+          return false;
+      }
+
+		}
+	</script>
 
 {% endblock %}
 
