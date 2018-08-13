@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.shortcuts import render, redirect
 from .models import Information
 from django.http import HttpResponse
@@ -58,3 +59,12 @@ def signin(request):
 
 def loginsuccess(request):
     return render(request, "login/loginsuccess.html")
+=======
+from django.shortcuts import render
+
+# Create your views here.
+
+def login_detail(request):
+
+    return render(request, 'login/login_detail.html')
+>>>>>>> 7f5d1551887abe6fb3e1badd8233aae6a2a164d5

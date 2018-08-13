@@ -1,4 +1,5 @@
 from django.db import models
+<<<<<<< HEAD
 from django.conf import settings
 
 class Information(models.Model):
@@ -12,3 +13,7 @@ class Information(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+=======
+
+# Create your models here.
+>>>>>>> 7f5d1551887abe6fb3e1badd8233aae6a2a164d5

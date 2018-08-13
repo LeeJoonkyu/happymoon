@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 """happy URL Configuration
+=======
+"""happymoon URL Configuration
+>>>>>>> 7f5d1551887abe6fb3e1badd8233aae6a2a164d5
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.0/topics/http/urls/
@@ -15,11 +19,32 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+<<<<<<< HEAD
 from django.conf import settings
 
+=======
+from store import views
+from django.conf import settings
+from django.conf.urls.static import static
+>>>>>>> 7f5d1551887abe6fb3e1badd8233aae6a2a164d5
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     path('login/', include('login.urls')),
 ]
+=======
+<<<<<<< HEAD
+    path('store/pad/', include('store.urls')),
+    path('store/goods/', include('goods.urls')),
+
+=======
+    path('store/pad/', views.product_list),
+    path('store/pad/<int:pk>/', views.product_detail),
+    path('', include('subscription.urls')),
+>>>>>>> subscription
+]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+>>>>>>> 7f5d1551887abe6fb3e1badd8233aae6a2a164d5

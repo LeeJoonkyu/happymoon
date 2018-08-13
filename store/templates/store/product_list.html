@@ -1,0 +1,51 @@
+{% extends 'base.html'%}
+
+{% block css%}
+  <link rel="stylesheet" href="/static/css/store/css_product_list.css?ver=1.1">
+  {% endblock%}
+
+
+{% block main %}
+  <main>
+    <div class="store_nav">
+      <div class="nav_container">
+        <h2 class="nav_left">스토어</h2>
+        <div class="nav_category">
+          <a href="/store/pad/" style="border-bottom:1px solid #000;">생리대</a>
+          <a href=>굿즈</a>
+          <a href=>정기배송</a>
+        </div>
+      </div>
+    </div>
+
+    <!--products_list-->
+    <div class="wrap_container">
+      <div class="item_container">
+        
+        {% for product in products %}
+        <a href="{{ product.pk }}" class="item">
+          <img src="{{ product.img_front.url }}" width=300px;>
+          <p> {{ product.name }} </p>
+          <p> {{ product.price }}원</p>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="banner_subscription">
+      <div class="cover_left"></div>
+      <div class="cover_wrap">
+        <div class="cover_title_container">
+          <p>
+          해피문데이는<br>
+          안심하고 쓸 수 있는 생리대를 만들고<br>
+          월경주기에 맞춰 배송합니다.<br>
+          </p>
+          <a href="">정기배송 시작하기</a>
+          <p class="shipping_free">(무료배송)</p>
+        </div>
+      </div>
+      <div class="cover_right"></div>
+    </div>
+  </main>
+  
+{% endblock %}

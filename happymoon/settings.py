@@ -10,17 +10,30 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
+<<<<<<< HEAD
 import os
+=======
+import os, re
+
+>>>>>>> 7f5d1551887abe6fb3e1badd8233aae6a2a164d5
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+<<<<<<< HEAD
 
+=======
+ 
+>>>>>>> 7f5d1551887abe6fb3e1badd8233aae6a2a164d5
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+<<<<<<< HEAD
 SECRET_KEY = '61yz_smimdztfm!s$!f1+mbni!_i&%h%a6y56qjy3ers@&ns61'
+=======
+SECRET_KEY = '0s%o239vwga=e5xj_y_%50pl+npal7+_o)&ut5**lkik_@kr*5'
+>>>>>>> 7f5d1551887abe6fb3e1badd8233aae6a2a164d5
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,6 +51,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'login',
+<<<<<<< HEAD
+=======
+    'store',
+<<<<<<< HEAD
+    'goods',
+=======
+    'subscription',
+>>>>>>> subscription
+>>>>>>> 7f5d1551887abe6fb3e1badd8233aae6a2a164d5
 ]
 
 MIDDLEWARE = [
@@ -56,8 +78,14 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
+<<<<<<< HEAD
             os.path.join(BASE_DIR,'static','templates'),
         ],
+=======
+            os.path.join(BASE_DIR,'happymoon','templates'),
+        ],
+
+>>>>>>> 7f5d1551887abe6fb3e1badd8233aae6a2a164d5
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -119,9 +147,30 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
+<<<<<<< HEAD
 
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+=======
+# 각 static 파일에 대한 URL Prefix
+STATIC_URL = '/static/' # 항상 /로 끝이 나도록 설정
+# STATIC_URL = 'http://static.myservice.com/v1/static/' # 다른 서버에 static파일들을 복사했을 시
+# FileSystemFinder 를 위한 static 디렉토리 목록
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+# 각 디렉토리 별로 나눠져있는 static파일들을 manage.py collectstatic명령을 통해, 아래 디렉토리 경로로 복사
+# 개발 당시에는 의미가 없는 설정. 실서비스 배포 전에 static 파일들을 모아서 배포 서버에 복사 STATIC_ROOT = os.path.join(BASE_DIR, '..', 'staticfiles')
+
+
+# 각 media 파일에 대한 URL Prefix
+MEDIA_URL = '/media/'
+# MEDIA_URL = 'http://static.myservice.com/media/' 다른 서버로 media 파일 복사시
+# 업로드된 파일을 저장할 디렉토리 경로
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+>>>>>>> 7f5d1551887abe6fb3e1badd8233aae6a2a164d5
