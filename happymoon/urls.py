@@ -22,9 +22,15 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+<<<<<<< HEAD
     path('store/pad/', include('store.urls')),
     path('store/goods/', include('goods.urls')),
 
+=======
+    path('store/pad/', views.product_list),
+    path('store/pad/<int:pk>/', views.product_detail),
+    path('', include('subscription.urls')),
+>>>>>>> subscription
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

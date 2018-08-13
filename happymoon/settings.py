@@ -40,7 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'login',
     'store',
+<<<<<<< HEAD
     'goods',
+=======
+    'subscription',
+>>>>>>> subscription
 ]
 
 MIDDLEWARE = [

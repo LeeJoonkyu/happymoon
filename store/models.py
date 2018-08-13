@@ -3,6 +3,8 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
+
+
 class Product(models.Model):
     img_front = models.ImageField(upload_to = 'store/', blank=True)
     img_back = models.ImageField(upload_to = 'store/', blank=True)
