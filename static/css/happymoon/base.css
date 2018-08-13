@@ -1,18 +1,18 @@
 body{
-  font-family: Helvetica, sans-serif;
+  font-family: NanumsquareR, Helvetica, sans-serif;
   font-weight: 200;
   font-size: 14px;
   margin: 0;
 }
 a{
-  font-family: Helvetica, sans-serif;
+  font-family: NanumsquareR, Helvetica, sans-serif;
   font-weight: 200;
   font-style: normal;
   text-decoration : none;
   color: black;
 }
 main{
-  background: #f9f9f5;
+
 }
 p{
   margin: 3px 0px;
@@ -44,4 +44,15 @@ header{
   padding: 0 14px;
   font-size: 14px;
   color: #495057;
+}
+
+.new_blink {
+  position: absolute;
+  top: -9px;
+  left: 36px;
+  width: 6px;
+  height: 6px;
+  border-radius: 4px;
+  background: #f59f00;
+  animation: blinker 1.5s linear infinite;
 }
