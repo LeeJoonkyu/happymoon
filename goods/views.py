@@ -8,7 +8,7 @@ def goods_list(request):
   ctx={
     'goods':goods,
   }
-  return render(request,'store/goods_list.html', ctx)
+  return render(request,'goods/goods_list.html', ctx)
 
 
 def goods_detail(request, pk):
@@ -16,4 +16,4 @@ def goods_detail(request, pk):
   ctx={
     'goods':goods,
   }
-  return render(request,'store/goods_detail.html', ctx)
+  return render(request,'goods/goods_detail.html', ctx)
