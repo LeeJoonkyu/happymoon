@@ -1,113 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6af7306f-0e21-47de-b147-8041ea6a569b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/goods/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/goods/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/goods/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/goods/migrations/0001_initial.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/goods/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/goods/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/goods/templates/goods/goods_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/goods/templates/goods/goods_list.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/goods/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/goods/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/goods/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/happymoon/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/happymoon/.idea/happymoon.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/happymoon/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/happymoon/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/happymoon/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/happymoon/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/templates/login/login_detail.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/login/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_large_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_large_back_nol6dUl.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_large_front_8OkvITp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_large_inner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_large_inner_k99ExG9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_large_side.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_large_side_tVkpq1a.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_largeset_CasOp90.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_liner_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_liner_back_qedVtHn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_liner_front_Qq2pDdF.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_liner_inner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_liner_inner_9GZYfeY.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_liner_top.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_liner_top_7mUTW0u.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_linerset_1VvkuUW.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_medium_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_medium_back_u05X3OD.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_medium_front_2uU6qHG.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_medium_front_DpM6Xz3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_medium_front_kAfouz6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_medium_inner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_medium_inner_loxXKSE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_medium_side.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_medium_side_WX8quSE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_mediumset_rmAD8QY.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_overnight_back.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_overnight_back_pmNaQ9i.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_overnight_front_3rbkNkl.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_overnight_front_9rQ1DAn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_overnight_inner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_overnight_inner_3C8DqWA.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_overnight_inner_z0cIK8z.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_overnight_side.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_overnight_side_IukW90s.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_overnight_side_SaRezEO.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_overnightset_KKf8YHv.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/media/store/happymoonday_overnightset_Ti6gvJe.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/login/css_login_main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/login/default.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/login/nav_button_cart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/store/cover_store_subscription_left.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/store/cover_store_subscription_right.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/store/mark_kfda.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/store/mark_ocs.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/store/store_detail_photo1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/store/store_detail_photo2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/store/store_detail_text1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/images/store/store_detail_text2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/migrations/0004_auto_20180803_0238.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/migrations/0005_auto_20180803_0259.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/migrations/0006_auto_20180803_0300.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/migrations/0007_remove_product_order.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/migrations/0008_product_p_code.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/migrations/0009_cart_for_pad.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/migrations/0010_auto_20180808_0831.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/templates/store/cart_for_pad.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/store/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/happymoon/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/happymoon/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/happymoon/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/happymoon/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/happymoon/base.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/happymoon/base.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/store/css_product_detail.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/store/css_product_detail.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/store/css_product_list.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/store/css_product_list.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/happymoonday_large_front.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/store/happymoonday_large_front.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/happymoonday_largeset.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/store/happymoonday_largeset.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/happymoonday_liner_front.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/store/happymoonday_liner_front.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/happymoonday_linerset.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/store/happymoonday_linerset.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/happymoonday_medium_front.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/store/happymoonday_medium_front.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/happymoonday_mediumset.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/store/happymoonday_mediumset.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/happymoonday_overnight_front.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/store/happymoonday_overnight_front.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/images/happymoonday_overnightset.png" beforeDir="false" afterPath="$PROJECT_DIR$/media/store/happymoonday_overnightset.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/happymoon/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/templates/store/product_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/product_detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/templates/store/product_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/store/templates/store/product_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/store/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/store/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="6af7306f-0e21-47de-b147-8041ea6a569b" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,21 +9,25 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -172,7 +70,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="147" />
     <option name="y" value="30" />
     <option name="width" value="1171" />
@@ -286,63 +184,27 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="tests" factoryName="Nosetests">
+    <configuration name="happymoon" type="Python.DjangoServer" factoryName="Django server">
       <module name="happymoon" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_regexPattern" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Twisted Trial">
-      <module name="happymoon" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Unittests">
-      <module name="happymoon" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="py.test">
-      <module name="happymoon" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
     </configuration>
   </component>
   <component name="SvnConfiguration">
@@ -360,7 +222,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="523" y="85" width="1077" height="752" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -407,16 +268,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/subscription/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/store/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/store/templates/store/product_detail.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
@@ -665,10 +516,16 @@
     <entry file="file://$PROJECT_DIR$/subscription/templates/subscription/subscription_list.html" />
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="76">
+          <caret line="4" column="5" lean-forward="true" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/goods/admin.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manage.py">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>
