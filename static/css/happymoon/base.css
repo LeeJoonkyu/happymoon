@@ -1,18 +1,18 @@
 body{
-  font-family: Helvetica, sans-serif;
+  font-family: NanumsquareR, Helvetica, sans-serif;
   font-weight: 200;
   font-size: 14px;
   margin: 0;
 }
 a{
-  font-family: Helvetica, sans-serif;
+  font-family: NanumsquareR, Helvetica, sans-serif;
   font-weight: 200;
   font-style: normal;
   text-decoration : none;
   color: black;
 }
 main{
-  background: #f9f9f5;
+
 }
 p{
   margin: 3px 0px;
