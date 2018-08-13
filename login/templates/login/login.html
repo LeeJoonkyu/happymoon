@@ -1,0 +1,25 @@
+{% block css%}
+  <link rel="stylesheet" href="/static/css/login/css_login_main.css">
+  <link rel="stylesheet" href="/static/css/login/default.css">
+{% endblock%}
+
+
+    <h2 class="title_center">로그인</h2>
+    <div class="login_container">
+      <form action="" method="post">
+        {%  csrf_token %}
+        <input type="hidden" name="post_type" value="login">
+        <div>
+          <input name="email" type="email" placeholder="이메일" class="email" value="">
+          <input name="password" type="password" placeholder="비밀번호" class="password">
+        </div>
+        <p class="auto_login"><input id="maintain_login" type="checkbox" name="maintain_login"><label for="maintain_login"><span class="checkbox"></span>자동 로그인 (30일)</label></p>
+
+        <button type="submit" class="submit">로그인</button>
+        <div class="find_account">
+          <a href="/find_email/" class="link_yellow_underline">이메일 찾기</a>
+          <span style="color: #ccc">/</span>
+          <a href="/find_password/" class="link_yellow_underline">비밀번호 찾기</a>
+        </div>
+    </form>
+  </div>
