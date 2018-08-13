@@ -8,14 +8,13 @@
   margin: 0 auto;
   height: 50px;
   border-bottom: 1px solid #dee2e6;
-  margin-bottom: 50px;
 }
 .nav_category{
   flex: 1;
   display: flex;
   justify-content: center;
 }
-.nav_category a{
+.nav_category a {
   padding: 0 0 3 0;
   margin: 10px 20px;
 }
@@ -31,14 +30,13 @@
   flex-wrap: wrap;
   padding-bottom: 60px;
   text-align: center;
+  justify-content: center;
 }
 .item{
   height: 419.391px;
   width: 330px;
-  display: flex;
   flex-direction: column;
   flex-grow: 1;
-  align-items: center;
   margin: 0 20px 80px 20px;
   padding: 0;
   max-width: 330px;
@@ -46,16 +44,23 @@
   flex-basis: auto;
   text-align: center;
   cursor: pointer;
+  background: #ffffff;
 }
 
-.banner_whatissubscription{
-
+.banner_subscription {
+  width: 1200px;
+  height: 495.219px;
+  padding: 0px 20px 20px 20px;
+  margin: 0 auto;
 }
 
 .htw_container{
   display: flex;
   flex-direction: row;
   padding-bottom: 50px;
+  width: 1199px;
+  height: 297px;
+  justify-content: center;
 }
 
 .small_title{
@@ -69,6 +74,8 @@
 .htw_step{
   text-align: center;
   flex: 1;
+  width: 300px;
+  height: 297px;
 }
 
 .htw_step img{
@@ -79,6 +86,8 @@
 .htw_step p{
   display: block;
   font-size: 14px;
+  margin-top: 14px;
+  margin-bottom: 14px;
 }
 
 .h1{
@@ -141,7 +150,6 @@
 
 .price_before{
   position: absolute;
-  bottom: 30px;
   font-size: 0.75rem;
   color: #fff;
   right: 90px;
@@ -159,6 +167,7 @@
   padding: 15px 5px 15px 5px;
   width: 320px;
   height: 27px;
+  vertical-align: middle;
 }
 .wrapper {
   display: table;

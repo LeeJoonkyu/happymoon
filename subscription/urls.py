@@ -2,7 +2,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.subscription_list),
-    path('<int:pk>/', views.subscription_detail),
-
+    path('subscription/', views.subscription_list, name="subscription_list"),
+    path('subscription_detail/HM-<str:str>/', views.subscription_detail, name="subscription_detail"),
 ]

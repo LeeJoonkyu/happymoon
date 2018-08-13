@@ -6,4 +6,4 @@ from .models import Type
 
 @admin.register(Type)
 class TypeAdmin(admin.ModelAdmin):
-    list_display = ['type', 'component', 'detail', 'price', 'price_before']
+    list_display = ['type', 'type_str', 'component', 'detail', 'price', 'price_before']

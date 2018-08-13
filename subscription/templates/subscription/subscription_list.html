@@ -6,19 +6,38 @@
 
 {% block main %}
   <main>
-    <div class="subscription_nav">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("a").on('click', function(event) {
+                if (this.hash !== "") {
+                    event.preventDefault();
+                    var hash = this.hash;
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function(){
+                        window.location.hash = hash;
+                    });
+                }
+            });
+        });
+    </script>
+
+      <div class="subscription_nav">
       <div class="nav_container">
         <h2 class="nav_left">스토어</h2>
         <div class="nav_category">
-          <a href="" style="border-bottom:1px solid #000;">생리대</a>
+          <a href=>생리대</a>
           <a href=>굿즈</a>
-          <a href=>정기배송</a>
+          <a href="" style="border-bottom:1px solid #000;">정기배송</a>
         </div>
       </div>
     </div>
 
     <div class="subscription_start">
-        <h1 class="start_title">정기배송 신청<img src="/static/images/ic_question.png" class="to_how"></h1>
+        <h1 class="start_title">정기배송 신청<a href="#subscription"><img src="/static/images/ic_question.png" class="to_how"></a></h1>
         <h2 class="small_title">기본 타입 선택하기</h2>
     </div>
 
@@ -27,19 +46,23 @@
       <div class="item_container">
 
         {% for type in types %}
-        <a href="{{ type.pk }}" class="item">
+        <div class="item"><a href="../subscription_detail/HM-{{ type.type_str }}">
           <img src="/static/images/{{ type.img }}" width="248" height="198.391" class="product_thumbnail">
-          <p class="label"> {{ type.type }}</p>
+          <p class="label">{{ type.type_str }}. {{ type.type }}</p>
           <p class="spec"> {{ type.component }}</p>
           <div class="wrapper"><p class="description"> {{ type.detail }} </p></div>
-          <p class="price_before"> {{ type.price_before }}원 </p>
-          <p class="price">선택하기 - ￦{{ type.price }}</p>
-        </a>
+          <div style="line-height: 27px;">
+            <p class="price_before"> {{ type.price_before }}원 </p>
+            <p class="price">선택하기 - ￦{{ type.price }}</p>
+          </div>
+        </a></div>
         {% endfor %}
       </div>
     </div>
-    <div class="banner_whatissubscription">
-        <h2 class="small_title">"정기배송이 뭔가요?"</h2>
+
+    <!--banner-->
+    <div class="banner_subscription">
+            <h2 class="small_title" id="subscription">"정기배송이 뭔가요?"</h2>
         <div class="htw_container">
             <div class="htw_step">
                 <img src="/static/images/main_illust_how4.jpg">
@@ -55,5 +78,6 @@
                 <p>때맞춰 보내드리니<br>기분 좋게 사용할 수 있답니다.</p></div>
         </div>
     </div>
+
   </main>
 {% endblock %}

@@ -5,12 +5,18 @@ from django.db import models
 
 class Type(models.Model):
     img = models.ImageField()
+    type_str = models.CharField(max_length=20, null=True)
     type = models.CharField(max_length=20)
     component = models.TextField()
     detail = models.TextField()
-    # 여기 type이라는 게 실속파, 중형파 뭐 이런거지 앞에 붙는 A, B, C를 포함하는 게 아님
     price = models.IntegerField()
     price_before = models.IntegerField(null=True)
 
+
+# class Addition(models.Model):
+#     img = models.ImageField()
+#     type =
+#     price =
+#     component =
 
 
