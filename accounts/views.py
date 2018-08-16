@@ -20,23 +20,13 @@ def information_create_view(request):
             if information.name and information.birth_year and information.birth_month and information.birth_day and information.channel is not None:
                 information.save()
                 User.objects.create_user(username=information.email, password=request.POST.get('password'))
-                return redirect('login:join_success')
-
-        elif request.POST.get('post_type') == 'login':
-            username = request.POST.get('email')
-            password = request.POST.get('password')
-            user = authenticate(username=username, password=password)
-            if user is not None:
-                login(request, user)
-                return redirect('login')
-            else:
-                return render(request, "login/information_create.html")
+                return redirect('accounts:join_success')
     else:
-        return render(request, "login/information_create.html")
+        return render(request, "accounts/information_create.html")
 
 
 def join_success(request):
-    return render(request, "login/join_success.html")
+    return render(request, "accounts/join_success.html")
 
 
 def signin(request):
@@ -64,6 +54,4 @@ def signin(request):
     context = {
         'login_form': login_form,
     }
-    return render(request, 'login/login.html', context)
-
-
+    return render(request, 'accounts/login.html', context)
