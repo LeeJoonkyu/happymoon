@@ -11,6 +11,7 @@ urlpatterns = [
     path('store/pad/', include('store.urls', namespace="store_pad")),
     path('store/goods/', include('goods.urls', namespace="store_goods")),
     path('', include('subscription.urls', namespace="subscription")),
+    path('mypage/', include('mypage.urls', namespace="mypage")),
 
 ]
 
