@@ -1,8 +1,10 @@
 from django.db import models
 from django.conf import settings
+from django.contrib.auth.models import User
 
 
 class Information(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=100)
     email = models.CharField(max_length=100)
     birth_year = models.IntegerField(blank=True)

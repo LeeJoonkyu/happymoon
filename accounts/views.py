@@ -18,8 +18,9 @@ def information_create_view(request):
             information.channel = request.POST.get('channel')
             information.referral_code = request.POST.get('referral_code')
             if information.name and information.birth_year and information.birth_month and information.birth_day and information.channel is not None:
+                user = User.objects.create_user(username=information.email, password=request.POST.get('password'))
+                information.user = user
                 information.save()
-                User.objects.create_user(username=information.email, password=request.POST.get('password'))
                 return redirect('accounts:join_success')
     else:
         return render(request, "accounts/information_create.html")

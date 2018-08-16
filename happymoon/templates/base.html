@@ -33,7 +33,7 @@
       <a href="/accounts/login/" class="dropbtn"><span>로그인</span></a>
       {% else %}
       <div class="dropdown">
-      <a href="/mypage/" class="dropbtn">황재석님<div class="ic_arrow_down"></div></a>
+      <a href="/mypage/" class="dropbtn">{{ user.information.name }}님<div class="ic_arrow_down"></div></a>
       <div class="dropdown-content">
       <a href="/mypage/">마이페이지</a>
       <a href="/accounts/logout">로그아웃</a>
