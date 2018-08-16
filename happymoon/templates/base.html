@@ -27,7 +27,20 @@
       </div>
       <a href="/subscription/" class="nav_subscription">정기배송</a>
 
+
+
+      {% if not user.is_authenticated %}
       <a href="/accounts/login/" class="dropbtn"><span>로그인</span></a>
+      {% else %}
+      <div class="dropdown">
+      <a href="/mypage/" class="dropbtn">황재석님<div class="ic_arrow_down"></div></a>
+      <div class="dropdown-content">
+      <a href="/mypage/">마이페이지</a>
+      <a href="/accounts/logout">로그아웃</a>
+      </div>
+      </div>
+      {% endif %}
+
 
 
       <a href="/store/cart/" class="nav_cart"><span class="header_cart_count">0</span></a>
