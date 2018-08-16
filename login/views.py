@@ -19,7 +19,7 @@ def information_create_view(request):
             if information.name and information.birth_year and information.birth_month and information.birth_day and information.channel is not None:
                 information.save()
                 User.objects.create_user(username=information.email, password=request.POST.get('password'))
-                return redirect("join_success")
+                return redirect('login:join_success')
 
         elif request.POST.get('post_type') == 'login':
             username = request.POST.get('email')

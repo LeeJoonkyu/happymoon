@@ -28,7 +28,7 @@ textarea { resize: none; }
       -ms-flex-direction: row;
           flex-direction: row;
 }
-@media only screen and (max-width: 690px) {
+@media only screen and (max-width: 690px) { 
   .row {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -85,7 +85,7 @@ a.link_yellow_large:after {
   right: -20px;
   width: 15px;
   height: 25px;
-  background: url('../images/arrow_right_yellow.png') no-repeat;
+  background: url('//happymoonday.com/static/images/arrow_right_yellow.png') no-repeat;
   background-size: 15px 25px;
   background-position: right;
 }
@@ -112,7 +112,7 @@ a.text_delete {
   border-bottom: 1px solid #e83608;
   cursor: pointer;
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 500px) { 
   a.link_yellow_large {
     font-size: 1.125rem;
   }
@@ -124,7 +124,7 @@ a.text_delete {
     right: -17px;
     width: 20px;
     height: 20px;
-    background: url('../images/arrow_right_yellow.png') no-repeat;
+    background: url('//happymoonday.com/static/images/arrow_right_yellow.png') no-repeat;
     background-size: 8px 16px;
     background-position: right;
   }
@@ -221,7 +221,7 @@ input.input_default_phone:focus {
 input.input_default_card {
   width: 23%;
   height: 40px;
-  line-height: 40px;
+  line-height: 40px; 
   border: 1px solid #ced4da;
   border-radius: 2px;
   background: #fff;
@@ -358,21 +358,14 @@ input[type=number].input_number_mobile {
   height: 35px;
   margin: -2px 10px 0 10px;
   vertical-align: middle;
-<<<<<<< HEAD
-
-=======
-  background: url('../images/@2x/button_check@2x.png') no-repeat;
->>>>>>> 7f5d1551887abe6fb3e1badd8233aae6a2a164d5
+  background: url('//happymoonday.com/static/images/@2x/button_check@2x.png') no-repeat;
   background-size: 35px;
   background-position: 0 0;
   line-height: 35px;
   cursor: pointer;
 }
 .checkbox_button input[type="checkbox"]:checked + label span.checkbox {
-<<<<<<< HEAD
-=======
-  background: url('../images/@2x/button_check@2x.png') no-repeat;
->>>>>>> 7f5d1551887abe6fb3e1badd8233aae6a2a164d5
+  background: url('//happymoonday.com/static/images/@2x/button_check@2x.png') no-repeat;
   background-size: 35px;
   background-position: 0 -35px;
 }
@@ -619,7 +612,7 @@ h4 {
   .gap {
     height: 25px;
   }
-  .gap100px {
+  .gap100px { 
     height: 30px;
   }
 }
@@ -760,7 +753,7 @@ hr.lightgray {
   background-color: #f59f00;
   color: white;
 }
-.button_large {
+.button_large { 
   background-color: #f59f00;
   border: none;
   border-radius: 2px;
@@ -830,7 +823,7 @@ hr.lightgray {
   font-family: 'NanumSquare', 'Helvetica', 'APPLE SD Gothic Neo', 'Malgun Gothic', 'Dotum', sans-serif;
   font-size: 1.25rem;
   color: white;
-  background: #7cb31f url('../images/arrow_right_white.png') no-repeat;
+  background: #7cb31f url('//happymoonday.com/static/images/arrow_right_white.png') no-repeat;
   background-size: 10px 20px;
   background-position: right 15px center;
   border: 0;
@@ -850,7 +843,7 @@ hr.lightgray {
   }
 }
 .arrow_down { /* button_next 의 화살표만 아래화살표로 - 신청하기 페이지 */
-  background: #7cb31f url('../images/arrow_down_white.png') no-repeat;
+  background: #7cb31f url('//happymoonday.com/static/images/arrow_down_white.png') no-repeat;
   background-size: 20px 20px;
   background-position: right 15px center;
 }
@@ -963,7 +956,7 @@ button.submit_green {
   margin: 30px auto;
   font-size: 1.25rem;
   color: white;
-  background: #7cb31f url('../images/arrow_right_white.png') no-repeat;
+  background: #7cb31f url('//happymoonday.com/static/images/arrow_right_white.png') no-repeat;
   background-size: 10px 20px;
   background-position: right 15px center;
   border: 0;
@@ -1122,10 +1115,10 @@ header nav a > .new_blink {
 	-webkit-animation-timing-function:ease-in-out;
 	-webkit-animation-direction: alternate;
 }
-@-webkit-keyframes blinker {
+@-webkit-keyframes blinker {  
   50% { opacity: 0; }
 }
-@keyframes blinker {
+@keyframes blinker {  
   50% { opacity: 0; }
 }
 header nav a > .new_text {
@@ -1166,12 +1159,12 @@ header nav .nav_cart {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: url('nav_button_cart.png') no-repeat;
+  background: url('//happymoonday.com/static/images/nav_button_cart.png') no-repeat;
   background-size: 40px 80px;
   background-position: 4px 0;
 }
 header nav .nav_cart.on {
-  background: url('nav_button_cart.png') no-repeat;
+  background: url('//happymoonday.com/static/images/nav_button_cart.png') no-repeat;
   background-size: 40px 80px;
   background-position: 4px -40px;
 }
@@ -1220,12 +1213,12 @@ header nav .nav_cart.on .header_cart_count {
   width: 15px;
   height: 15px;
   margin: 3px;
-  background: url('../images/icon_dropdown_small.png') no-repeat;
+  background: url('//happymoonday.com/static/images/icon_dropdown_small.png') no-repeat;
   background-size: 15px 30px;
   background-position: 0 0;
 }
 .dropdown:hover .ic_arrow_down {
-  background: url('../images/icon_dropdown_small.png') no-repeat;
+  background: url('//happymoonday.com/static/images/icon_dropdown_small.png') no-repeat;
   background-size: 15px 30px;
   background-position: 0 -15px;
 }
@@ -1283,12 +1276,12 @@ header .nav_mobile { /* Mobile navigation hidden when Desktop view */
   header .nav_mobile .nav_left {
     width: 50px;
     height: 50px;
-    background: url('../images/nav_button_menu2.png') no-repeat;
+    background: url('//happymoonday.com/static/images/nav_button_menu2.png') no-repeat;
     background-size: 40px 40px;
     background-position: center center;
   }
   header .nav_mobile .nav_left.expanded {
-    background: url('../images/nav_button_close.png') no-repeat;
+    background: url('//happymoonday.com/static/images/nav_button_close.png') no-repeat;
     background-size: 40px 40px;
     background-position: center center;
   }
@@ -1322,13 +1315,13 @@ header .nav_mobile { /* Mobile navigation hidden when Desktop view */
     width: 50px;
     height: 50px;
     padding: 0;
-    background: url('nav_button_cart.png') no-repeat;
+    background: url('//happymoonday.com/static/images/nav_button_cart.png') no-repeat;
     background-size: 40px 80px;
     background-position: 5px 5px;
   }
   header .nav_mobile .nav_cart.on {
     padding: 0;
-    background: url('nav_button_cart.png') no-repeat;
+    background: url('//happymoonday.com/static/images/nav_button_cart.png') no-repeat;
     background-size: 40px 80px;
     background-position: -4px -35px;
   }
@@ -1799,7 +1792,7 @@ ul.tab_bar li.current a:hover {
   color: #fff;
 }
 .tab #tab-1 {
- display: block;
+ display: block;   
 }
 .tab .tab-content {
   max-width: 480px;
