@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from .models import Information
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate
+from .forms import LoginForm
+from django.contrib.auth import (authenticate, get_user_model, login, logout, )
 
 
 def information_create_view(request):
@@ -39,23 +40,30 @@ def join_success(request):
 
 
 def signin(request):
-        if request.method == "POST":
-            username = request.POST.get('email')
-            password = request.POST.get('password')
+    if request.method == 'POST':
+        login_form = LoginForm(request.POST)
+        if login_form.is_valid():
+            username = login_form.cleaned_data['username']
+            password = login_form.cleaned_data['password']
+
             user = authenticate(username=username, password=password)
-            if user is not None:
+            if user:
                 login(request, user)
-                print()
-                return redirect('login')
+                return redirect('store_pad:pad_list')
             else:
+                num = 0
                 for person in User.objects.all():
                     if person.username == username:
-                        return HttpResponse('비밀번호가 다릅니다.')
-                return HttpResponse('아이디가 다릅니다.')
-        else:
-            return render(request, 'login/login.html')
+                        num = num + 1
+                if num != 1:
+                    login_form.add_error(None, '해당 이메일로 가입된 정보가 없습니다.')
+                else:
+                    login_form.add_error(None, '비밀번호가 일치하지 않습니다.')
+    else:
+        login_form = LoginForm()
+    context = {
+        'login_form': login_form,
+    }
+    return render(request, 'login/login.html', context)
 
-
-def loginsuccess(request):
-    return render(request, "login/loginsuccess.html")
 

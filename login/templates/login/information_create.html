@@ -11,32 +11,7 @@
 <div id="main">
 
   <div class="signup_page wrap">
-    <!-- Login  -->
-    <h2 class="title_center">로그인</h2>
-    <div class="login_container">
-      <form action="" method="post">
-        {%  csrf_token %}
-        <input type="hidden" name="post_type" value="login">
-        <div>
-          <input name="email" type="email" placeholder="이메일" class="email" value="">
-          <input name="password" type="password" placeholder="비밀번호" class="password">
-        </div>
-        <p class="auto_login"><input id="maintain_login" type="checkbox" name="maintain_login"><label for="maintain_login"><span class="checkbox"></span>자동 로그인 (30일)</label></p>
 
-        <button type="submit" class="submit">로그인</button>
-        <div class="find_account">
-          <a href="/find_email/" class="link_yellow_underline">이메일 찾기</a>
-          <span style="color: #ccc">/</span>
-          <a href="/find_password/" class="link_yellow_underline">비밀번호 찾기</a>
-        </div>
-      </form>
-    </div>
-
-    <div class="signup_container">
-      <h4 class="signup_title"><span class="bg_white">처음 오셨나요?</span></h4>
-      <div id="button_order_signup" class="button_signup">회원가입</div>
-      <div class="just1minute">(1분 소요)</div>
-    </div>
 
     <!-- Signup  -->
     <div id="signup" >
