@@ -26,6 +26,6 @@ class Product(models.Model):
 #   order = models.OneToOneField('store.Cart')
 
 class Cart_for_Pad(models.Model):
-    user  = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True)
+    user  = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     order = models.IntegerField()
