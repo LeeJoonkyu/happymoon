@@ -8,5 +8,5 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(Cart_for_Pad)
 class Cart_for_PadAdmin(admin.ModelAdmin):
-  list_display = ['product','order']
+  list_display = ['user', 'product','order']
 

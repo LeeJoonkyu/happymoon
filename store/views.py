@@ -22,7 +22,7 @@ def product_detail(request, pk):
             product = product,
             order = order,
         )
-        return  redirect(reverse('pad_list'))
+        return  redirect(reverse('store_pad:cart_for_pad'))
     else:
         random_num=[]
         for i in range(1,len(Product.objects.all())+1):
@@ -39,7 +39,7 @@ def product_detail(request, pk):
 
 
 def cart_for_pad(request):
-    cart = Cart_for_Pad.objcets.all()
+    cart = Cart_for_Pad.objects.all()
     ctx = {
         'cart': cart,
     }

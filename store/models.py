@@ -1,10 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
 
 
 # Create your models here.
-
-
 class Product(models.Model):
     img_front = models.ImageField(upload_to = 'store/', blank=True)
     img_back = models.ImageField(upload_to = 'store/', blank=True)
@@ -27,6 +26,6 @@ class Product(models.Model):
 #   order = models.OneToOneField('store.Cart')
 
 class Cart_for_Pad(models.Model):
-#   user  = models.OneToOneField()
+    user  = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True, null=True)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     order = models.IntegerField()
