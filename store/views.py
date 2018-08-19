@@ -18,10 +18,13 @@ def product_detail(request, pk):
     if request.method == 'POST':
         user = request.user
         order = request.POST.get('order')
+        total_price = int(product.price) * int(order)
+        print(total_price)
         cart = Cart_for_Pad.objects.create(
             user = user,
             product = product,
             order = order,
+            total_price = total_price,
         )
         return  redirect(reverse('cart:cart'))
     else:
