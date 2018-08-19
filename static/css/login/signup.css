@@ -1,3 +1,6 @@
+/*  Signup page */
+
+/* Check box Auto Login */
 .auto_login input[type="checkbox"] {
   display: none;
 }
@@ -10,14 +13,14 @@
   height: 22px;
   margin: -2px 6px 0 0;
   vertical-align: middle;
-  background:  no-repeat;
+  background: url('//happymoonday.com/static/images/ic_check_yellow.png') no-repeat;
   background-size: 22px;
   background-position: 0 0;
   line-height: 22px;
   cursor: pointer;
 }
 .auto_login input[type="checkbox"]:checked + label span.checkbox {
-  background:  no-repeat;
+  background: url('//happymoonday.com/static/images/ic_check_yellow.png') no-repeat;
   background-size: 22px;
   background-position: 0 -22px;
 }
@@ -81,7 +84,7 @@
   font-size: 0.938rem;
   padding: 0 10px;
   margin: 4px 0;
-  background:  right 10px center no-repeat;
+  background: url('//happymoonday.com/static/images/@2x/icon_dropdown@2x.png') right 10px center no-repeat;
   background-size: 20px;
   cursor: pointer;
 }
@@ -185,14 +188,14 @@
   height: 22px;
   margin: -2px 6px 0 6px;
   vertical-align: middle;
-  background:  no-repeat;
+  background: url('//happymoonday.com/static/images/ic_check_yellow.png') no-repeat;
   background-size: 22px;
   background-position: 0 0;
   line-height: 22px;
   cursor: pointer;
 }
 .agree_bar input[type="checkbox"]:checked + label span.checkbox {
-  background:  no-repeat;
+  background: url('//happymoonday.com/static/images/ic_check_yellow.png') no-repeat;
   background-size: 22px;
   background-position: 0 -22px;
 }
@@ -207,7 +210,7 @@
   text-align: left;
 }
 .popup_content_scroll p {
-  font-size: 15px !important;
+  font-size: 15px !important; 
   margin: 7px 0 !important;
   padding: 0 !important;
 }

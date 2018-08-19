@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
-  <link rel="stylesheet" href="{% static "css/happymoon/base.css" %}">
+  <link rel="stylesheet" href="/static/css/login/default.css">
   {% block css %}
   {% endblock %}
 
@@ -15,25 +14,101 @@
 
 <body>
   <!--navbar-->
-  <header>
+    <header>
+
     <nav class="nav_desktop">
-        <h1 id="logo"><img src="/static/images/logo_happymoonday_kr.png" width=140px></h1>
+      <h1 id="logo"><a href='/'><img src="/static/images/logo_happymoonday_kr.png"/></a></h1>
       <div class="menu_group">
-        <a href=>회사소개</a>
-        <a href=>스토어</a>
-        <a href=>제품상세</a>
-        <a href=>고객후기
-        <a href=>공지사항
-
-
+        <a href="/company/" class="nav_company">회사소개</a>
+        <a href="/store/pad/" class="nav_store">스토어</a>
+        <a href="/product/" class="nav_product">제품상세</a>
+        <a href="/review/" class="nav_review">고객후기<div class="new_blink"></div></a>
+        <a href="/notice_list/" class="nav_notice">공지사항<div class="new_blink"></div></a>
       </div>
-      <a href="" style="color: #f59f00;">정기배송</a>
-      <a href=>로그인</a>
-      <a href=>CART</a>
+      <a href="/subscription/" class="nav_subscription">정기배송</a>
+
+
+
+      {% if not user.is_authenticated %}
+      <a href="/accounts/login/" class="dropbtn"><span>로그인</span></a>
+      {% else %}
+      <div class="dropdown">
+      <a href="/mypage/" class="dropbtn">{{ user.information.name }}님<div class="ic_arrow_down"></div></a>
+      <div class="dropdown-content">
+      <a href="/mypage/">마이페이지</a>
+      <a href="/accounts/logout">로그아웃</a>
+      </div>
+      </div>
+      {% endif %}
+
+
+
+      <a href="/store/cart/" class="nav_cart"><span class="header_cart_count">0</span></a>
     </nav>
-  </header>
+
+    </header>
   
   {% block main %}
   {% endblock %}
+<<<<<<< HEAD
+=======
+
+>>>>>>> b67d4f3032d511b0701af5cf68ab605f582624fc
 </body>
+
+    <footer>
+      <div class="wrap container">
+        <div class="footer_nav">
+          <ul>
+            <span>제품</span>
+            <li><a href="/store/">생리대 구입</a></li>
+            <li><a href="/subscription/">정기배송 신청</a></li>
+            <li><a href="/experience/">체험팩 신청</a></li>
+            <li><a href="/product/">제품상세</a></li>
+            <li><a href="/review/">고객후기</a></li>
+          </ul>
+          <ul>
+            <span>서비스</span>
+
+            <li><a href="/company/">회사소개</a></li>
+            <li><a href="/notice_list/">공지사항</a></li>
+            <li><a href="/faq/">FAQ</a></li>
+            <li><a href="/login/">로그인/회원가입</a></li>
+
+          </ul>
+          <ul>
+            <span>문의</span>
+            <li><a href="http://pf.kakao.com/_xlVfhxl" target="_blank">카카오톡 문의</a></li>
+            <li><a href="mailto:help@happymoonday.com">메일 문의</a></li>
+            <li><a href="/shipping/">배송 및 반품</a></li>
+            <li><a href="/policy/terms/">이용약관</a></li>
+            <li><a href="/policy/privacy/"><strong>개인정보처리방침</strong></a></li>
+          </ul>
+          <ul>
+            <span>소셜</span>
+            <li><a href="https://www.instagram.com/happy.moonday/" target="_blank" alt="인스타그램 바로가기">instagram</a></li>
+            <li><a href="https://www.facebook.com/happymoonday/" target="_blank" alt="페이스북 바로가기">facebook</a></li>
+            <li><a href="https://twitter.com/happy_moonday" target="_blank" alt="트위터 바로가기">twitter</a></li>
+            <li><a href="https://blog.naver.com/happymoonday" target="_blank" alt="네이버 블로그 바로가기">naver blog</a></li>
+            <li><a href="https://www.youtube.com/channel/UCWKx1QYvOZ3XdBrxhU89S3w" target="_blank" alt="유투브 바로가기">youtube</a></li>
+          </ul>
+          <ul class="certified_container">
+            <div class="certified">
+              <span>인증</span>
+              <img src="/static/images/mark_ocs.png" class="mark_ocs"><img src="/static/images/mark_kfda.png" class="mark_kfda">
+            </div>
+          </ul>
+        </div>
+        <div class="company_infomation">
+          <p>
+            (주)해피문데이&nbsp;&nbsp;|&nbsp;&nbsp;대표자: 김도진&nbsp;&nbsp;|&nbsp;&nbsp;사업자등록번호: 410-88-00826&nbsp;&nbsp;|&nbsp;&nbsp;통신판매업번호: 2018-서울관악-0438<br>
+            고객센터 : <a href="tel:02-6956-1936">02-6956-1936</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:help@happymoonday.com">help@happymoonday.com</a>&nbsp;&nbsp;|&nbsp;&nbsp;주소: 서울특별시 관악구 관악로 158 BS타워 3층<br>
+            제휴문의 : <a href="tel:070-8823-1936">070-8823-1936</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:biz@happymoonday.com">biz@happymoonday.com</a><br>
+            © <b>HAPPY MOONDAY</b> Inc. ALL Rights Reserved
+          </p>
+        </div>
+      </div>
+    </footer>
+
+
 </html>
