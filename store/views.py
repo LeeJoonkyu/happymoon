@@ -15,10 +15,10 @@ def product_list(request):
 def product_detail(request, pk):
     product = Product.objects.get(pk=pk)
     if request.method == 'POST':
-        #user
+        user = request.user
         order = request.POST.get('order')
         cart = Cart_for_Pad.objects.create(
-            #user,
+            user = user,
             product = product,
             order = order,
         )
