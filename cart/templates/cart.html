@@ -8,56 +8,58 @@
 
 {% block main %}
 
-<div id="main">
-    
-<!-- Cart -->
-<div class="cart_container">
-  <h2>장바구니</h2>
-  <div class="list_container">
-    <div class="list_head">      
-      <div class="name">상품</div>
-      <div class="price">가격</div>
-      <div class="qty">수량</div>
-      <div class="delete"></div>
-      <div class="product_total">총가격</div>
-    </div>
-    <div id="empty_status" class="list_item" style="display: block;">
-      <p style="margin: 30px auto;">장바구니가 비어있습니다.</p>
-    </div>
-    <form id="cart_form" action="/store/cart/" method="post">
-      <input type='hidden' name='csrfmiddlewaretoken' value='Une1T5etUE3P7PaISBYxoeD1s0sfbFHm2RNuwqz5nY2jtUKH5qRpw0k7FtxDiB4d' />
-      
-    </form>
-  </div>
-  <div id="total_checkbox" class="button_gray"><img src="/static/images/ic_success_small.png">전체선택</div>
-  <div class="button_gray select_delete">선택삭제</div>
-</div>
-
-<!-- Order Submit -->
-<div class="order_summary">
-  <div class="column1"></div>
-  <div class="column2">
-    <table>
-      <tr>
-        <td class="price">총 상품가격</td>
-        <td class="price"><span id="total_product_price">0</span>원</td>
-      </tr>
-      <tr>
-        <td class="shipping">배송비</td>
-        <td class="shipping"><span id="shipping">0</span>원</td>
-      </tr>
-      <tr>
-        <td class="total">총 주문금액</td>
-        <td class="total"><span id="total_price">0</span>원</td>
-      </tr>
-    </table>
-    <p class="shpping_notice">20,000원 이상 구매 시 무료배송 / 제주지역 추가 3,000원</p>
-    <a id="purchase_button" class="button_submit">구매하기</a>
-    <a href="/store/pad/" class="button_gotoshop">쇼핑 계속하기</a>
-  </div>
-</div>
-
-
-    </div>
 
 {%  endblock %}
+
+<div id="main">
+    
+        <!-- Cart -->
+        <div class="cart_container">
+          <h2>장바구니</h2>
+          <div class="list_container">
+            <div class="list_head">      
+              <div class="name">상품</div>
+              <div class="price">가격</div>
+              <div class="qty">수량</div>
+              <div class="delete"></div>
+              <div class="product_total">총가격</div>
+            </div>
+            <div id="empty_status" class="list_item" style="display: block;">
+              <p style="margin: 30px auto;">장바구니가 비어있습니다.</p>
+            </div>
+            <form id="cart_form" action="/store/cart/" method="post">
+              <input type='hidden' name='csrfmiddlewaretoken' value='Une1T5etUE3P7PaISBYxoeD1s0sfbFHm2RNuwqz5nY2jtUKH5qRpw0k7FtxDiB4d' />
+              
+            </form>
+          </div>
+          <div id="total_checkbox" class="button_gray"><img src="/static/images/ic_success_small.png">전체선택</div>
+          <div class="button_gray select_delete">선택삭제</div>
+        </div>
+        
+        <!-- Order Submit -->
+        <div class="order_summary">
+          <div class="column1"></div>
+          <div class="column2">
+            <table>
+              <tr>
+                <td class="price">총 상품가격</td>
+                <td class="price"><span id="total_product_price">0</span>원</td>
+              </tr>
+              <tr>
+                <td class="shipping">배송비</td>
+                <td class="shipping"><span id="shipping">0</span>원</td>
+              </tr>
+              <tr>
+                <td class="total">총 주문금액</td>
+                <td class="total"><span id="total_price">0</span>원</td>
+              </tr>
+            </table>
+            <p class="shpping_notice">20,000원 이상 구매 시 무료배송 / 제주지역 추가 3,000원</p>
+            <a id="purchase_button" class="button_submit">구매하기</a>
+            <a href="/store/pad/" class="button_gotoshop">쇼핑 계속하기</a>
+          </div>
+        </div>
+        
+        
+            </div>
+        
