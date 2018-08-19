@@ -2,12 +2,68 @@
 
 {% block css%}
   <link rel="stylesheet" href="/static/css/login/default.css">
-  <link rel="stylesheet" href="/static/css/cart/cart.css">
+  <link rel="stylesheet" href="/static/css/cart/cart_temp.css">
 {% endblock%}
 
 
 {% block main %}
 
+<div id="main">
+    <h1>장바구니</h1>
+
+    <!-- 장바구니 리스트 -->
+    <div class="carttable_container">
+        <table class="carttable"style="width:100%">
+                <tr>
+                    <th> </th>
+                    <th>상품</th>
+                    <th>가격</th> 
+                    <th>수량</th>
+                    <th>총가격</th>
+                </tr>
+                {%if cart_products %}
+                    {% for cart_product in cart_products %}
+                    <tr>
+                        <td><input type="checkbox" name="" value=""></td>    
+                        <td><img src="{{ cart_product.product.img_front.url }}" width=100px> {{ cart_product.product.name }}</td>
+                        <td>{{ cart_product.product.price }}원</td> 
+                        <td>{{ cart_product.order }}</td>
+                        <td>--</td>
+                    </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td>장바구니가 비었습니다.</td>
+                    </tr>
+                {% endif %}            
+        </table>
+    
+        <form action="" method="">
+            <button type="submit">전체선택</button>
+            <button type="submit">선택삭제</button>
+        </form>
+    </div>
+    
+
+    <!-- 주문하기 -->
+    <div class="order_container">
+        <table class="total_price">
+            <tbody>
+                <tr><td>총 상품가격</td><td>000원</td></tr>
+                <tr><td>배송비</td><td>000원</td></tr>
+                <tr><td>총 주문금액</td><td>000원</td></tr>
+            </tbody> 
+        </table>
+        
+        <p>20,000원 이상 구매 시 무료배송 / 제주지역 추가 3,000원</p>
+        <form action="" method="post">
+                <input type='hidden' name='post_type' value='order' />
+            <button type="submit" class="">구매하기</button>
+        </form>
+        <a href="{% url "store_pad:pad_list" %}"><button>쇼핑계속하기</button></a>
+    </div>
+    
+</div>
 
 {%  endblock %}
 
@@ -28,7 +84,8 @@
               <p style="margin: 30px auto;">장바구니가 비어있습니다.</p>
             </div>
             <form id="cart_form" action="/store/cart/" method="post">
-              <input type='hidden' name='csrfmiddlewaretoken' value='Une1T5etUE3P7PaISBYxoeD1s0sfbFHm2RNuwqz5nY2jtUKH5qRpw0k7FtxDiB4d' />
+                {% csrf_token %}
+                <input type='hidden' name='post_type' value='' />
               
             </form>
           </div>
@@ -62,4 +119,3 @@
         
         
             </div>
-        

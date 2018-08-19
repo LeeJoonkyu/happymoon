@@ -1,6 +1,7 @@
 from django.shortcuts import render,reverse, redirect
 from .models import Product, Cart_for_Pad
 from django.db.models import Q
+# from django.contrib.auth import User
 import random
 
 # Create your views here.
