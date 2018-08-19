@@ -4,9 +4,9 @@ from .models import Order
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        fields = '__all__'
+        fields = ('name', 'amount', 'buyer_name', 'buyer_email', 'buyer_tel',
+                    'recipient_name', 'recipient_tel', 'recipient_postcode', 'recipient_add', 'recipient_memo',)
         widgets = {
-            'user' : forms.HiddenInput,
             'name': forms.HiddenInput,
             'amount': forms.HiddenInput,
             'buyer_name': forms.TextInput(attrs={'readonly': 'readonly'}),

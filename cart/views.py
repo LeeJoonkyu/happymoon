@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
+from django.http import HttpResponse, Http404
 from django.contrib.auth.decorators import login_required
 from store.models import Cart_for_Pad
 from accounts.models import Information
@@ -19,7 +20,10 @@ def cart(request):
     ulti_total_price= 0
     for item in cart_products:
         ulti_total_price += item.total_price
-    shipping_charge = 2500
+    if ulti_total_price<20000:
+        shipping_charge = 2500
+    else:
+        shipping_charge = 0
     amount = (ulti_total_price + shipping_charge)
     ctx = {
         'cart_products': cart_products,
@@ -30,14 +34,17 @@ def cart(request):
     return render(request, "cart.html", ctx)
 
 
-def payment(request): #TODO : 여기 이어서 하기
+def payment(request): #TODO: 여기 이어서 하기
     items = Cart_for_Pad.objects.filter(user=request.user)
     buyer = get_object_or_404(Information, user=request.user)
-    name = items[0].product.name+" 등"
+    name = items[0].product.name+" 외 {}개".format(len(items)-1)
     ulti_total_price= 0
     for item in items:
         ulti_total_price += item.total_price
-    shipping_charge = 2500
+    if ulti_total_price<20000:
+            shipping_charge = 2500
+    else:
+        shipping_charge = 0
     amount = (ulti_total_price + shipping_charge)
     buyer_name = buyer.name
     buyer_email = buyer.email
@@ -45,14 +52,17 @@ def payment(request): #TODO : 여기 이어서 하기
 
     if request.method == 'POST':
         form = OrderForm(request.POST, initial=initial)
-        if form.is_valid():
+        if form.is_valid(): #TODO: 여기가 문제===================
             order = form.save(commit=False)
             order.user = request.user
             order.save()
-            return redirect('profile')
+            return HttpResponse("성공")
+        else:
+            print(form)
+            return HttpResponse("실패")
     else:
         form = OrderForm(initial=initial)
-
+    
     cart_products = Cart_for_Pad.objects.filter(user=request.user)
     ctx = {
         'form': form,
