@@ -7,10 +7,12 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', include('login.urls', namespace="login")),
+    path('accounts/', include('accounts.urls', namespace="accounts")),
     path('store/pad/', include('store.urls', namespace="store_pad")),
     path('store/goods/', include('goods.urls', namespace="store_goods")),
     path('', include('subscription.urls', namespace="subscription")),
+    path('mypage/', include('mypage.urls', namespace="mypage")),
+    path('store/cart/', include('cart.urls', namespace="cart")),
 
 ]
 
