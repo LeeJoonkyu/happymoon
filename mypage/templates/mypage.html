@@ -1,0 +1,60 @@
+{% extends 'base.html'%}
+
+{% block css%}
+  <link rel="stylesheet" href="/static/css/login/default.css">
+  <link rel="stylesheet" href="/static/css/mypage/my_default.css">
+{% endblock%}
+
+
+{% block main %}
+
+    <div id="main">
+
+
+
+<!-- My Infomation -->
+<div class="my_info_container">
+  <div class="my_info">
+
+    <div class="name"><a href="/mypage/"><strong>{{ user.information.name }}</strong>님의 해피문데이</a></div>
+    <div class="email">dajasin245@naver.com</div>
+  </div>
+  <div class="illust"><img src="/static/images/my_info_illust3.png"></div>
+</div>
+
+<!-- Mypage Main -->
+<div class="main_wrap">
+    <ul class="mypage_nav">
+    <li><a href="/mypage/subscription/" class="mynav_subscription">정기배송</a></li>
+    <li><a href="/mypage/store_list/" class="mynav_orderlist">주문내역</a></li>
+    <li><a href="/mypage/payment/" class="mynav_payment">결제정보</a></li>
+    <li><a href="/mypage/referral/" class="mynav_referral">추천코드</a></li>
+    <li><a href="/mypage/account/" class="mynav_account">계정설정</a></li>
+  </ul>
+
+
+  <div class="main">
+    <ul class="dashboard_container">
+      <li class="dashboard_item"><a href="/mypage/subscription/">
+        <label>정기배송</label>
+        <div class="row"><img src="/static/images/ic_dashboard_subscription_status.png" class="ic_status">정기배송 내역이 없습니다.</div>
+      </a></li>
+      <li class="dashboard_item"><a href="/mypage/store_list/">
+        <label>스토어 주문내역</label>
+        <div class="row"><img src="/static/images/ic_dashboard_order_status.png" class="ic_status">주문내역이 없습니다.</div>
+      </a></li>
+      <li class="dashboard_item"><a href="/mypage/payment/">
+        <label>결제정보</label>
+        카드미등록<br>0&nbsp;coin
+      </a></li>
+      <li class="dashboard_item"><a href="/mypage/account/">
+        <label>계정설정</label>
+        회원정보 수정
+      </a></li>
+    </ul>
+  </div>
+</div>
+    </div>
+</body>
+
+{% endblock %}
