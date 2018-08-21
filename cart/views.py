@@ -57,7 +57,7 @@ def payment(request): #TODO: 여기 이어서 하기
             order = form.save(commit=False)
             order.user = request.user
             order.save()
-            return redirect(reverse('cart:pay_now'))
+            return redirect(reverse('cart:pay_now', args=(str(order.merchant_uid),)))
         else:
             print(form)
             return HttpResponse("실패")
@@ -78,8 +78,8 @@ def payment(request): #TODO: 여기 이어서 하기
 
 
 
-def pay_now(request):
-    order = Order.objects.first()
+def pay_now(request, merchant_uid):
+    order = Order.objects.get(user=request.user, merchant_uid=merchant_uid)
     ctx = {
         'iamport_shop_id': 'iamport',
         'order': order,

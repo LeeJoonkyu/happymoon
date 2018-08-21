@@ -4,4 +4,4 @@ from .models import Order
 # Register your models here.
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-  pass
+  list_display = ['name', 'amount', 'merchant_uid']

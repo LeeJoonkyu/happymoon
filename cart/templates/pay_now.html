@@ -14,7 +14,7 @@
     IMP.request_pay({
         pg : 'html5_inicis', //pg사 변경 가능
         pay_method : 'card',
-        merchant_uid : 'merchant_' + new Date().getTime(),
+        merchant_uid : '{{ order.merchant_uid }}',
         name : '{{ order.name }}',
         amount : {{ order.amount }},
         buyer_email : '{{ order.buyer_email }}',

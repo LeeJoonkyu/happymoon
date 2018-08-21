@@ -1,4 +1,5 @@
 from django.db import models
+from uuid import uuid4
 from django.conf import settings
 
 # Create your models here.
@@ -6,6 +7,8 @@ class Order(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     name = models.CharField(max_length=100, verbose_name='주문상품')
     amount = models.PositiveIntegerField(verbose_name='총 결제금액')
+    merchant_uid = models.UUIDField(default=uuid4, editable=False) #uuid4 ; 임의의 id부여해줌/ 수정불가능하게 editable False
+    imp_uid = models.CharField(max_length=100, blank=True) #결제완료된 후 받아오는 값이므로 처음에는 blank
 
     buyer_name = models.CharField(max_length=50, verbose_name='주문자 이름')
     buyer_email = models.CharField(max_length=100, verbose_name='주문자 이메일')
