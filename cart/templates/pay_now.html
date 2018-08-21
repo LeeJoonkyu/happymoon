@@ -1,29 +1,38 @@
+{% extends 'base.html'%}
+
 {% block main%}
+<h1 style="text-align:center;">결제진행중</h1>
 
-<h1>결제진행중...</h1>
-
-<script src="//code.jquery.com/jquery-1.12.4.min.js" ></script>
-<script src="//service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<script src="http://code.jquery.com/jquery-1.12.4.min.js" ></script>
+<script src="http://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script>
 (function() {
     var IMP = window.IMP;
-    var code = "iamport"; // FIXME: 가맹점 식별코드
+    var code = "iamport";  // FIXME: 가맹점 식별코드 (로그인/시스템설정/내정보)
     IMP.init(code);
-
-    // 결제요청 
+    // 결제요청
     IMP.request_pay({
-        name : 'name',
-        amount : 1,
+        pg : 'html5_inicis', //pg사 변경 가능
+        pay_method : 'card',
+        merchant_uid : 'merchant_' + new Date().getTime(),
+        name : '{{ order.name }}',
+        amount : {{ order.amount }},
+        buyer_email : '{{ order.buyer_email }}',
+        buyer_name : '{{ order.buyer_name }}',
+        buyer_tel : '{{ order.buyer_tel }}',
+        //buyer_addr : '서울특별시 강남구 삼성동',
+        //buyer_postcode : '123-456',
+        m_redirect_url : '{% url "store_pad:pad_list" %}'
     }, function(rsp) {
         if ( rsp.success ) {
-            var msg = '결제가완료되었습니다.';
-            msg += '고유ID : ' + rsp.imp_uid;
-            msg += '상점 거래ID : ' + rsp.merchant_uid; 
-            msg += '결제 금액 : ' + rsp.paid_amount; 
+            var msg = '결제가 완료되었습니다.';
+            msg += '고유ID : ' + rsp.imp_uid; //iamport에서 결정해주는 고유 아이디
+            msg += '상점 거래ID : ' + rsp.merchant_uid; //상점아이디
+            msg += '결제 금액 : ' + rsp.paid_amount;
             msg += '카드 승인번호 : ' + rsp.apply_num;
         }
         else {
-            var msg = '결제에 실패하였습니다. 에러내용 : ' + rsp.error_msg 
+            var msg = '결제에 실패하였습니다. 에러내용 : ' + rsp.error_msg
         }
         alert(msg);
     });
@@ -36,6 +45,7 @@
 
 
 <!--  extra body for js-->
+<script src="//code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script src="https://service.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <script>
 $(function() {

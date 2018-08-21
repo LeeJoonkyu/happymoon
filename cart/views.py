@@ -80,13 +80,9 @@ def payment(request): #TODO: 여기 이어서 하기
 
 def pay_now(request):
     order = Order.objects.first()
-    amount = int(order.amount)
-    name = order.name
     ctx = {
         'iamport_shop_id': 'iamport',
-        'name': name,
-        'amount': amount,
-
+        'order': order,
     }
     return render(request, 'pay_now.html', ctx)
 
