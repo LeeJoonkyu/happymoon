@@ -138,4 +138,7 @@ MEDIA_URL = '/media/'
 # 업로드된 파일을 저장할 디렉토리 경로
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
+# iamport
+DEFAULT_TEST_IMP_KEY = 'imp_apikey'
+DEFAULT_TEST_IMP_SECRET = ('ekKoeW8RyKuT0zgaZsUtXXTLQ4AhPFW3ZGseDA6bkA5lamv9O'
+                           'qDMnxyeB9wqOsuO9W3Mx9YSJ4dTqJ3f')

@@ -7,6 +7,10 @@ from store.models import Cart_for_Pad
 from accounts.models import Information
 from .forms import OrderForm
 from .models import Order
+from iamport import Iamport
+
+iamport = Iamport(imp_key=settings.DEFAULT_TEST_IMP_KEY,
+                  imp_secret=settings.DEFAULT_TEST_IMP_SECRET)
 
 
 def cart(request):
@@ -75,7 +79,6 @@ def payment(request): #TODO: 여기 이어서 하기
     return render(request, 'payment.html', ctx)
 
 
-
 def pay_now(request, merchant_uid):
     order = Order.objects.get(user=request.user, merchant_uid=merchant_uid)
     ctx = {
@@ -91,4 +94,18 @@ def pay_now(request, merchant_uid):
 #     return redirect('shop:order_pay', item_id, str(order.merchant_uid)) #결제페이지로...
 
 
-def 
+def pay_complete(request):
+    imp_uid = request.GET.get("imp_uid")
+    response = iamport.find_by_imp_uid(imp_uid)
+
+    merchant_uid = response["merchant_uid"]
+    myorder = get_object_or_404(Order, merchant_uid=merchant_uid)
+    myorder.imp_uid = imp_uid
+    myorder.save()
+
+    product_price = myorder.amount
+    if not iamport.is_paid(product_price, imp_uid=imp_uid):
+        # 결제실패
+        return HttpResponse('실패')
+
+    return render(request, 'pay_complete.html')
