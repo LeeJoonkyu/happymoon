@@ -15,8 +15,8 @@ class OrderForm(forms.ModelForm):
             'buyer_tel': forms.TextInput(attrs={'placeholder': '휴대폰 번호'}),
             'recipient_name': forms.TextInput(attrs={'placeholder': '이름'}),
             'recipient_tel': forms.TextInput(attrs={'placeholder': '휴대폰 번호'}),
-            'recipient_postcode': forms.TextInput(attrs={'placeholder': '우편번호'}),
-            'recipient_add': forms.TextInput(attrs={'placeholder': '주소'}),
-            'recipient_add_detail': forms.TextInput(attrs={'placeholder': '상세주소'}),
+            'recipient_postcode': forms.TextInput(attrs={'placeholder': '우편번호', 'id': 'postcode'}),
+            'recipient_add': forms.TextInput(attrs={'placeholder': '주소', 'id': 'address'}),
+            'recipient_add_detail': forms.TextInput(attrs={'placeholder': '상세주소', 'id': 'address_detail'}),
             'recipient_memo': forms.TextInput(attrs={'placeholder': '배송메시지'}),
         }
