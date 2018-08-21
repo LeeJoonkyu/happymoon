@@ -86,22 +86,8 @@ table.spec td:first-child {
   padding-top: 16px;
 }
 
-.period input:invalid {
+.period {
   display: block;
-  content: '월경주기를 10~365일 범위로 입력해주세요.';
-  margin-top: 2px;
-  margin-bottom: 2px;
-  color: red;
-}
-.error_message {
-  margin-top: 2px;
-  margin-bottom: 2px;
-  color: red;
-  display: block;
-}
-
-input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
 }
 
 .input_period {
@@ -116,6 +102,24 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
   cursor: pointer;
   text-align: right;
   display: inline-block;
+}
+
+.period input:invalid {
+  display: inline-block;
+  content: '월경주기를 10~365일 범위로 입력해주세요.';
+  margin-top: 2px;
+  margin-bottom: 2px;
+  color: red;
+}
+.error_message {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  color: red;
+  display: block;
+}
+
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 
 select.selectbtn {
