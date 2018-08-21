@@ -71,8 +71,6 @@ def payment(request): #TODO: 여기 이어서 하기
         'ulti_total_price': ulti_total_price,
         'shipping_charge': shipping_charge,
         'amount': amount,
-
-        'iamport_shop_id':'iamport', #FIXME: 각자의 shop_id를 지정하실 수 있습니다
     }
     return render(request, 'payment.html', ctx)
 
@@ -93,3 +91,4 @@ def pay_now(request, merchant_uid):
 #     return redirect('shop:order_pay', item_id, str(order.merchant_uid)) #결제페이지로...
 
 
+def 
