@@ -22,7 +22,7 @@ def product_detail(request, pk):
             product = product,
             order = order,
         )
-        return  redirect(reverse('pad_list'))
+        return redirect(reverse('pad_list'))
     else:
         random_num=[]
         for i in range(1,len(Product.objects.all())+1):
