@@ -1,0 +1,60 @@
+{% extends 'base.html'%}
+
+{% block css%}
+  <link rel="stylesheet" href="/static/css/login/default.css">
+  <link rel="stylesheet" href="/static/css/cart_subscription/cart_subscription.css">
+{% endblock%}
+
+
+{% block main %}
+
+<div id="main">
+    <div class="cart_container">
+        <h2>정기배송 주문내역</h2>
+
+    <!-- 정기배송 주문내역 리스트 -->
+
+        <div class="list_container">
+
+        {% if cart_subscriptions %}
+            {% for cart_subscription in cart_subscriptions %}
+
+            <div class="list_head">
+                <div class="name">상품</div>
+                <div class="qty">수량</div>
+                <div class="pads">총 수량</div>
+                <div class="item_total">총 가격</div>
+            </div>
+
+            <div class="list_item">
+                <div class="name_price_container">
+                    <div class="thumbnail"><img src="{{ cart_subscription.type.img.url }}" width=100px></div>
+                    <div class="name">{{ cart_subscription.type_str }}. {{ cart_subscription.type.type }}</div>
+                </div>
+                <div class="qty">{{ cart_subscription.number }}</div>
+                <div class="pads">{{ cart_subscription.component }}</div>
+                <div class="item_total">{{ cart_subscription.price }}원</div>
+            </div>
+
+            <div class="list_item">
+                <div class="name_price_container">
+                    <div class="thumbnail"><img src="/static/images/ic_calendar.png"></div>
+                    <div class="name">
+                        첫 발송일: {{ cart_subscription.first_date }}
+                        <br>
+                        배송주기: {{ cart_subscription.delivery_period}}</div>
+                </div>
+                <div class="qty"></div>
+                <div class="item_total"></div>
+            </div>
+
+            <a href="../subscription_detail/HM-{{ cart_subscription.type_str }}" class="button_gray">주문 변경</a>
+
+                {% endfor %}
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+{%  endblock %}

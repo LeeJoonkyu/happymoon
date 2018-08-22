@@ -40,11 +40,3 @@ def product_detail(request, pk):
             'products' : products,
         }
         return render(request,'store/product_detail.html', ctx)
-
-
-def cart_for_pad(request):
-    cart = Cart_for_Pad.objects.all()
-    ctx = {
-        'cart': cart,
-    }
-    return render(request, 'store/cart_for_pad.html', ctx)

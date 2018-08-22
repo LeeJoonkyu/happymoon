@@ -211,15 +211,15 @@ img {
   z-index: 9999;
 }
 
-table.order{
+table.order_menu{
   border-spacing: 0;
   width: 100%;
   margin-bottom: 20px;
 }
-table.order td {
+table.order_menu td {
   padding: 4px 0;
 }
-table.order td.text .circle_orange {
+table.order_menu td.text .circle_orange {
   width: 10px;
   height: 10px;
   background: #f59f00;
@@ -228,16 +228,16 @@ table.order td.text .circle_orange {
   display: inline-block;
 }
 
-table.order td.text {
+table.order_menu td.text {
   width: 100px;
 }
 
-table.order td.ord {
+table.order_menu td.ord {
   text-align: right;
   height: 30px;
   width: 154px;
 }
-table.order td.price {
+table.order_menu td.price {
   text-align: right;
   width: 78px;
 }

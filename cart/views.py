@@ -43,10 +43,10 @@ def payment(request): #TODO: 여기 이어서 하기
     items = Cart_for_Pad.objects.filter(user=request.user)
     buyer = get_object_or_404(Information, user=request.user)
     name = items[0].product.name+" 외 {}개".format(len(items)-1)
-    ulti_total_price= 0
+    ulti_total_price = 0
     for item in items:
         ulti_total_price += item.total_price
-    if ulti_total_price<20000:
+    if ulti_total_price < 20000:
             shipping_charge = 2500
     else:
         shipping_charge = 0

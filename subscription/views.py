@@ -1,5 +1,7 @@
-from django.shortcuts import render
-from .models import Type
+from django.shortcuts import render, redirect, reverse
+from django.urls import reverse
+from subscription.models import Type, Cart_for_Subscription
+
 # Create your views here.
 
 
@@ -13,7 +15,29 @@ def subscription_list(request):
 
 def subscription_detail(request, str):
     type = Type.objects.get(type_str=str)
-    ctx = {
-        'type': type,
-    }
-    return render(request, 'subscription/subscription_detail.html', ctx)
+    if request.method == 'POST' and request.POST.get('delivery_period') != 'not_allowed':
+        user = request.user
+        type_str = type.type_str
+        first_date = request.POST.get('first_date')
+        delivery_period = request.POST.get('delivery_period')
+        number = 'X 1'
+        component = type.component
+        price = type.price
+        cart_subscription = Cart_for_Subscription.objects.create(
+            user = user,
+            type_str = type_str,
+            type = type,
+            first_date = first_date,
+            delivery_period = delivery_period,
+            number = number,
+            component = component,
+            price = price,
+         )
+        return redirect(reverse('cart_subscription:cart_subscription'))
+
+    else:
+        ctx = {
+            'type': type,
+        }
+
+        return render(request, 'subscription/subscription_detail.html', ctx)
