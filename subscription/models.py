@@ -13,10 +13,5 @@ class Type(models.Model):
     price_before = models.IntegerField(null=True)
 
 
-# class Addition(models.Model):
-#     img = models.ImageField()
-#     type =
-#     price =
-#     component =
 
 
