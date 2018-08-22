@@ -36,23 +36,21 @@
                   <td>월경주기<span class="required">*</span></td>
 
                   <td>
-                      <form class="period">
+                      <div class="period">
                           <input class="input_period" type="number" placeholder="숫자 입력" name="period_cycle" onkeypress="return numbersOnly(this.value)" value="28" min="10" max="365" required>
                           일
                           <span style="color: #868e96" >(수정 가능)</span>
-                      </form>
+                      </div>
                   </td>
               </tr>
               <tr><td>배송주기<span class="required">*</span></td>
                   <td>
-                      <form>
-                          <select id="selectBox" name="selectBox" class="selectbtn">
-                              <option value="0" selected="true" disabled="disabled">선택해주세요</option>
-                              <option value="1">1주기마다 (28일마다)</option>
-                              <option value="2">2주기마다 (56일마다)</option>
-                              <option value="3">3주기마다 (84일마다)</option>
-                          </select>
-                      </form>
+                      <select id="selectBox" name="selectBox" class="selectbtn">
+                          <option value="0" selected="true" disabled="disabled">선택해주세요</option>
+                          <option value="1">1주기마다 (28일마다)</option>
+                          <option value="2">2주기마다 (56일마다)</option>
+                          <option value="3">3주기마다 (84일마다)</option>
+                      </select>
 
                       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -160,7 +158,6 @@
                         }
                     });
                 });
-
                 $(function() {
                     $('#selectBox').click(function () {
                         var state = $('#selectBox').val();

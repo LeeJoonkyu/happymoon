@@ -16,7 +16,7 @@ class Order(models.Model):
 
     recipient_postcode = models.CharField(max_length=10, verbose_name='우편번호')
     recipient_add = models.CharField(max_length=100, verbose_name='주소')
-    recipient_add_detail = models.CharField(max_length=100, verbose_name='주소')
+    recipient_add_detail = models.CharField(max_length=100, verbose_name='상세주소')
     recipient_memo = models.CharField(max_length=100, blank=True, null=True, verbose_name='배송메모(선택)')
 
     #status

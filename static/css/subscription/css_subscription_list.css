@@ -118,13 +118,14 @@
   margin-right: 10px;
   margin-left: 10px;
 }
-.label{
+.label_{
   display: block;
   font-size: 1.25rem;
   padding-top: 20px;
   padding-bottom: 7px;
   width: 330px;
   height: 30px;
+  margin: 0;
 }
 
 .spec{
@@ -150,15 +151,17 @@
 
 .price_before{
   position: absolute;
+  bottom: 25px;
   font-size: 0.75rem;
   color: #fff;
   right: 90px;
   opacity: 0.6;
   text-decoration: line-through;
   margin-bottom: 5px;
+  margin-top:0;
 }
 
-.price{
+.price_{
   background: #fdb64a;
   font-size: 1.125rem;
   font-weight: bold;
@@ -168,6 +171,7 @@
   width: 320px;
   height: 27px;
   vertical-align: middle;
+  margin: 0;
 }
 .wrapper {
   display: table;

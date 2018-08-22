@@ -91,7 +91,7 @@ table.spec td:first-child {
 }
 
 .input_period {
-  width: 68px;
+  width: 90px;
   height: 33px;
   border: 1px solid #adb5bd;
   border-radius: 2px;
@@ -227,13 +227,19 @@ table.order td.text .circle_orange {
   margin-right: 8px;
   display: inline-block;
 }
+
+table.order td.text {
+  width: 100px;
+}
+
 table.order td.ord {
   text-align: right;
   height: 30px;
+  width: 154px;
 }
 table.order td.price {
   text-align: right;
-  width: 90px;
+  width: 78px;
 }
 
 table.fee{
@@ -296,3 +302,4 @@ tbody{
   cursor: pointer;
   transition: background 0.3s;
 }
+
