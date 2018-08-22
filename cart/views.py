@@ -59,6 +59,11 @@ def payment(request): #TODO: 여기 이어서 하기
         form = OrderForm(request.POST, initial=initial)
         if form.is_valid(): #TODO: 여기가 문제===================
             order = form.save(commit=False)
+
+            recipient_postcode = request.POST.get('recipient_postcode')
+            recipient_add = request.POST.get('recipient_add')+' '+request.POST.get('recipient_adddetail')
+            order.recipient_postcode = recipient_postcode
+            order.recipient_add = recipient_add
             order.user = request.user
             order.save()
             return redirect(reverse('cart:pay_now', args=(str(order.merchant_uid),)))
