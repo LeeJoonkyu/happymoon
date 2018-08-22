@@ -1,6 +1,7 @@
 from django.shortcuts import render,reverse, redirect
 from .models import Product, Cart_for_Pad
 from django.db.models import Q
+# from django.contrib.auth import User
 import random
 
 # Create your views here.
@@ -15,14 +16,19 @@ def product_list(request):
 def product_detail(request, pk):
     product = Product.objects.get(pk=pk)
     if request.method == 'POST':
-        #user
+        user = request.user
         order = request.POST.get('order')
+        total_price = int(product.price) * int(order)
+        print(total_price)
         cart = Cart_for_Pad.objects.create(
-            #user,
+            user = user,
             product = product,
             order = order,
+            total_price = total_price,
         )
-        return redirect(reverse('pad_list'))
+
+        return  redirect(reverse('cart:cart'))
+
     else:
         random_num=[]
         for i in range(1,len(Product.objects.all())+1):
@@ -36,3 +42,11 @@ def product_detail(request, pk):
             'products' : products,
         }
         return render(request,'store/product_detail.html', ctx)
+
+
+def cart_for_pad(request):
+    cart = Cart_for_Pad.objects.all()
+    ctx = {
+        'cart': cart,
+    }
+    return render(request, 'store/cart_for_pad.html', ctx)

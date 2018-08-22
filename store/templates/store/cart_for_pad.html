@@ -18,7 +18,7 @@
     <tbody>
       {% for cartunit in cart %}
       <tr>
-        <td><a href={% url 'pad_list' product.pk %}>{{ cartunit.product.name }}</a></td>
+        <td><a href={% url 'store_pad:pad_detail' cartunit.product.pk %}>{{ cartunit.product.name }}</a></td>
         <td>{{ cartunit.product.price }}원</td>
         <td>{{ cartunit.order }}</td>
         <td>~원</td>

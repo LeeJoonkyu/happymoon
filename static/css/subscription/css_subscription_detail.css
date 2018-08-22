@@ -86,8 +86,26 @@ table.spec td:first-child {
   padding-top: 16px;
 }
 
-.period input:invalid {
+.period {
   display: block;
+}
+
+.input_period {
+  width: 90px;
+  height: 33px;
+  border: 1px solid #adb5bd;
+  border-radius: 2px;
+  font-size: 0.938rem;
+  padding: 0 10px;
+  margin: 4px 0;
+  background: #fff;
+  cursor: pointer;
+  text-align: right;
+  display: inline-block;
+}
+
+.period input:invalid {
+  display: inline-block;
   content: '월경주기를 10~365일 범위로 입력해주세요.';
   margin-top: 2px;
   margin-bottom: 2px;
@@ -102,20 +120,6 @@ table.spec td:first-child {
 
 input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
-}
-
-.input_period {
-  width: 68px;
-  height: 33px;
-  border: 1px solid #adb5bd;
-  border-radius: 2px;
-  font-size: 0.938rem;
-  padding: 0 10px;
-  margin: 4px 0;
-  background: #fff;
-  cursor: pointer;
-  text-align: right;
-  display: inline-block;
 }
 
 select.selectbtn {
@@ -223,13 +227,19 @@ table.order td.text .circle_orange {
   margin-right: 8px;
   display: inline-block;
 }
+
+table.order td.text {
+  width: 100px;
+}
+
 table.order td.ord {
   text-align: right;
   height: 30px;
+  width: 154px;
 }
 table.order td.price {
   text-align: right;
-  width: 90px;
+  width: 78px;
 }
 
 table.fee{

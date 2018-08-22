@@ -1,0 +1,23 @@
+#main{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+}
+h1{
+    text-align: center;
+}
+.carttable{
+    border-top: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da;
+}
+.carttable th{
+    background: #f9f9f5;
+}
+.carttable td{
+    margin: 5px; auto;
+}
+
+.order_container{
+    margin-top: 30px;
+}

@@ -36,23 +36,21 @@
                   <td>월경주기<span class="required">*</span></td>
 
                   <td>
-                      <form class="period">
+                      <div class="period">
                           <input class="input_period" type="number" placeholder="숫자 입력" name="period_cycle" onkeypress="return numbersOnly(this.value)" value="28" min="10" max="365" required>
                           일
-                          <span style="color: #868e96">(수정 가능)</span>
-                      </form>
+                          <span style="color: #868e96" >(수정 가능)</span>
+                      </div>
                   </td>
               </tr>
               <tr><td>배송주기<span class="required">*</span></td>
                   <td>
-                      <form>
-                          <select id="selectBox" name="selectBox" class="selectbtn">
-                              <option value="0" selected disabled>선택해주세요</option>
-                              <option value="1">1주기마다 (28일마다)</option>
-                              <option value="2">2주기마다 (56일마다)</option>
-                              <option value="3">3주기마다 (84일마다)</option>
-                          </select>
-                      </form>
+                      <select id="selectBox" name="selectBox" class="selectbtn">
+                          <option value="0" selected="true" disabled="disabled">선택해주세요</option>
+                          <option value="1">1주기마다 (28일마다)</option>
+                          <option value="2">2주기마다 (56일마다)</option>
+                          <option value="3">3주기마다 (84일마다)</option>
+                      </select>
 
                       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -74,17 +72,21 @@
 
                       <div class="error_message_more" style="display: block;">수량이 충분한지 확인하셨나요? 더 필요하시면 아래에서 사이즈를 추가하세요.</div>
                   </td></tr>
+
               <tr><td>첫 발송일<span class="required">*</span></td>
                   <td>
                       <div class="date_container">
                           <div class="date_button">2018년 08월 07일</div>
                       </div>
 
-                  </td></tr>
+                  </td>
+              </tr>
+
               <tr>
                   <td>옵션 추가</td>
                   <td><hr></td>
               </tr>
+
               <tr><td style="font-weight: normal;">생리대</td>
                   <td><select name="pad" class="selectbtn">
                       <option selected disabled>선택해주세요</option>
@@ -138,7 +140,7 @@
             </tr>
             </tbody>
           </table>
-          
+
           <div class="button_order">
             <div>주문하기</div>
 
@@ -147,18 +149,27 @@
             <script>
                 $(function() {
                     $('.error_message').hide();
-                    var state = $('#selectBox').val();
-                    $('#button_order').click(function () {
-                        if (state === '1') {
+                    $('.button_order').click(function () {
+                        var state = $('#selectBox').val();
+                        if (state !== '1' && state !== '2' && state !== '3') {
                             $('.error_message').show();
                         } else {
+                            $('.error_message').hide();
+                        }
+                    });
+                });
+                $(function() {
+                    $('#selectBox').click(function () {
+                        var state = $('#selectBox').val();
+                        if (state === '1' || state === '2' || state === '3') {
                             $('.error_message').hide();
                         }
                     })
                 });
             </script>
 
-              {#                      배송주기를 건드리지 않고 주문하기를 눌렀을 때 에러메시지가 뜨게 하는 중#}
+            {# 배송주기를 건드리지 않고 주문하기를 눌렀을 때 에러메시지가 뜨게 함 - 다만 select disabled 삭제했음 #}
+            {# 배송주기를 수정했을 때 에러메시지가 사라지게 함 #}
 
           </div>
 

@@ -48,12 +48,12 @@
         {% for type in types %}
         <div class="item"><a href="../subscription_detail/HM-{{ type.type_str }}">
           <img src="/static/images/{{ type.img }}" width="248" height="198.391" class="product_thumbnail">
-          <p class="label">{{ type.type_str }}. {{ type.type }}</p>
+          <p class="label_">{{ type.type_str }}. {{ type.type }}</p>
           <p class="spec"> {{ type.component }}</p>
           <div class="wrapper"><p class="description"> {{ type.detail }} </p></div>
           <div style="line-height: 27px;">
             <p class="price_before"> {{ type.price_before }}원 </p>
-            <p class="price">선택하기 - ￦{{ type.price }}</p>
+            <p class="price_">선택하기 - ￦{{ type.price }}</p>
           </div>
         </a></div>
         {% endfor %}
