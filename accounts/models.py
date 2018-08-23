@@ -14,3 +14,15 @@ class Information(models.Model):
     referral_code = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+
+# 이메일인증 smtp
+class EmailConfirm(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        related_name='email_confirm',
+        on_delete=models.CASCADE,
+    )
+    key = models.CharField(max_length=60)
+    is_confirmed = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)

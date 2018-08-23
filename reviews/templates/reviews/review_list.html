@@ -1,8 +1,132 @@
 {% extends 'base.html' %}
-{% block main %}
+{% load static %}
+{% load el_pagination_tags %}
 
-<h1>해피문데이 실사용자 리뷰</h1>
-<h2>후기가 궁금하신가요?</h2>
-<button>리뷰 남기기</button>
+{% block css %}
+    <link rel="stylesheet" href="/static/css/reviews/review_list.css">
+{% endblock %}
+
+{% block main %}
+<div class="top">
+    <h1>해피문데이 실사용자 리뷰</h1>
+    <h2>후기가 궁금하신가요?</h2>
+    <button class="btn-review">리뷰 남기기</button>
+</div>
+
+
+<!-- without pagination -->
+{#<div class="reviews_container">#}
+{#    {% for review in reviews %}#}
+{#        <div class="reviewAndcomment">#}
+{#            <div class="review">#}
+{#                <ul>#}
+{#                    <li#}
+{#                    <li>{{ review.star }}</li>#}
+{#                    <li>{{ review.user.username }} {{ review.created_at }}</li>#}
+{#                    <li id="review_title">{{ review.title }} </li> <!--{{ review.product }}-->#}
+{#                    <li>{{ review.content }}</li>#}
+{#                </ul>#}
+{#            </div>#}
+{#            <div class="comment">#}
+{#                {% for comment in review.review_comment_set.all %}#}
+{#                    <ul>#}
+{#                        <li>{{ comment.author }}</li>#}
+{#                        <li>{{ comment.message }}</li>#}
+{#                    </ul>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
+{#    {% endfor %}#}
+{#</div>#}
+
+
+<!--pagination digg-style -->
+{#<div class="reviews_container_pagination">#}
+{#{% paginate 5 reviews %}#}
+{#    {% for review in reviews %}#}
+{#        <div class="reviewAndcomment">#}
+{#            <div class="review">#}
+{#                <ul>#}
+{#                    <li>{{ review.star }}</li>#}
+{#                    <li>{{ review.user.username }} {{ review.created_at }}</li>#}
+{#                    <li id="review_title">{{ review.title }} </li> <!--{{ review.product }}-->#}
+{#                    <li>{{ review.content }}</li>#}
+{#                </ul>#}
+{#            </div>#}
+{#            <div class="comment">#}
+{#                {% for comment in review.review_comment_set.all %}#}
+{#                    <ul>#}
+{#                        <li>{{ comment.author }}</li>#}
+{#                        <li>{{ comment.message }}</li>#}
+{#                    </ul>#}
+{#                {% endfor %}#}
+{#            </div>#}
+{#        </div>#}
+{#    {% endfor %}#}
+{#</div>#}
+{#    <div class="pages">#}
+{#        {% show_pages %}#}
+{#    </div>#}
+
+
+<!--django pagination-->
+<div class="reviews_container_pagination">
+    {% for review in reviews %}
+        <div class="reviewAndcomment">
+            <div class="review">
+                <ul>
+                    <li>{{ review.star }}</li>
+                    <li><b>{{ review.user.information.name }}</b> <small>{{ review.created_at |date:"Y.m.d."}}</small></li>
+                    <li id="review_title">{{ review.title }} </li> <!--{{ review.product }}-->
+                    <li>{{ review.content }}</li>
+                </ul>
+            </div>
+            <div class="comment">
+                {% for comment in review.review_comment_set.all %}
+                    <ul>
+                        <li class="superuser">
+                            <img id="logo_symbol" src="{% static 'images/logo_symbol_happymoonday.png' %}">
+                            <b>해피문데이</b><small>{{ comment.created_at |date:"Y.m.d."}}</small>
+                        </li>
+                        <li class="superuser_message">{{ comment.message }}</li>
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+<div class="pages">
+    <span class="step-links">
+        {% if reviews.has_previous %}
+{#            <a href="?page=1">&laquo; first</a>#}
+            <a href="?page={{ reviews.previous_page_number }}"> 〈 </a>
+        {% else %}
+            <a> 〈 </a>
+        {% endif %}
+
+        <span class="current">
+            <span class="current_now">{{ reviews.number }}</span>  &nbsp; &nbsp;/  &nbsp; &nbsp; {{ reviews.paginator.num_pages }}
+        </span>
+
+        {% if reviews.has_next %}
+            <a href="?page={{ reviews.next_page_number }}"> 〉 </a>
+{#            <a href="?page={{ reviews.paginator.num_pages }}">last &raquo;</a>#}
+        {% else %}
+            <a> 〉 </a>
+        {% endif %}
+    </span>
+</div>
+
+
+
+<div class="bottom">
+    <div class="bottom_container">
+        {{ a }}
+        <p>좋은 제품으로 일상에 도움이 되고 싶어요</p>
+        <p>좋은 생리대 편하게 편하게</p>
+        <button>신청하기</button>
+    </div>
+</div>
 
 {% endblock %}

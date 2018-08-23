@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'subscription',
     'cart',
     'reviews',
+    'el_pagination',
 
 ]
 
@@ -143,3 +144,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_TEST_IMP_KEY = 'imp_apikey'
 DEFAULT_TEST_IMP_SECRET = ('ekKoeW8RyKuT0zgaZsUtXXTLQ4AhPFW3ZGseDA6bkA5lamv9O'
                            'qDMnxyeB9wqOsuO9W3Mx9YSJ4dTqJ3f')
+
+
+# 이메일인증 smtp
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'pirogramming@gmail.com'
+EMAIL_HOST_PASSWORD = 'django1!'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
