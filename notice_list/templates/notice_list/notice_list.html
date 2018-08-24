@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% load el_pagination_tags %}
+
+{% block main %}
+<head>
+<link rel="stylesheet" href="/static/css/notice_list/notice_list.css">
+
+</head>
+
+  <div id="main">
+
+
+<!-- Notice Title -->
+<div class="notice_title_container">
+  <h2 class="notice_title">해피문데이 공지사항</h2>
+  <div class="illust"><img src="https://happymoonday.com/static/images/header_illust_notice.png"></div>
+</div>
+
+<div class="wrap notice">
+  <!-- Notice List -->
+  <ul class="board_container">
+    <li class="head">
+      <div class="number">번호</div>
+      <div class="title_container">제목</div>
+      <div class="date">날짜</div>
+    </li>
+
+      {% paginate articles %}
+      {% for article in articles %}
+        <li>
+          {{ article.pk }}
+          <a href ="{% url "notice_list:notice_detail" pk=article.pk %}">
+            {{ article.title }}
+          </a>
+          <small>{{ article.created_at|date:" n.d " }}</small>
+        </li>
+      {% endfor %}
+      {% show_pages %}
+
+{% endblock %}

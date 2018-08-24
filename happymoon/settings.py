@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os, re
+from django.conf.global_settings import TEMPLATES
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -42,7 +44,8 @@ INSTALLED_APPS = [
     'goods',
     'subscription',
     'cart',
-
+    'notice_list',
+    'el_pagination',
 ]
 
 MIDDLEWARE = [
@@ -70,6 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',  ## For EL-pagination
             ],
         },
     },
@@ -142,3 +146,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_TEST_IMP_KEY = 'imp_apikey'
 DEFAULT_TEST_IMP_SECRET = ('ekKoeW8RyKuT0zgaZsUtXXTLQ4AhPFW3ZGseDA6bkA5lamv9O'
                            'qDMnxyeB9wqOsuO9W3Mx9YSJ4dTqJ3f')
+
+USE_TZ = True
+TIME_ZONE = 'Asia/Seoul'
+
