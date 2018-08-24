@@ -3,6 +3,7 @@ from django.urls import include, path
 from store import views
 from django.conf import settings
 from django.conf.urls.static import static
+from django.shortcuts import redirect
 
 
 urlpatterns = [
@@ -13,7 +14,8 @@ urlpatterns = [
     path('', include('subscription.urls', namespace="subscription")),
     path('mypage/', include('mypage.urls', namespace="mypage")),
     path('store/cart/', include('cart.urls', namespace="cart")),
-
+    path('main/', include('main.urls'), name='main'),
+    path('', lambda req: redirect('main:main'), name='root'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,92 @@
+{% extends 'base.html'%}
+
+{% block css%}
+  <link rel="stylesheet" href="/static/css/main/index.css">
+  <link rel="stylesheet" href="/static/js/jquery.bxslider.css">
+{% endblock%}
+
+{% block main %}
+    <!-- Cover Slideshow -->
+
+    <div class="cover_container">
+        <div class="bxslider">
+
+      <div class="cover_item cover_slide1">
+        <div class="text_container">
+          <h3>해피문데이 1주년 감사제</h3>
+          <h2>한달치 유기농 생리대<br>첫 정기배송 990원</h2>
+          <a href="/event/thanksmoonday1/" class="button_start">신청하기</a>
+        </div>
+      </div>
+      <div class="cover_item cover_slide2">
+        <div class="text_container">
+          <h3>해피문데이 1주년 저녁식사</h3>
+          <h2>우리, 밥 한 끼 할까요?<br>진솔한 TALK &amp; 저녁식사</h2>
+          <a href="/notice/45/" class="button_start">참석자 명단 및 장소 확인하기</a>
+        </div>
+      </div>
+      <div class="cover_item cover_slide3">
+        <div class="text_container">
+          <h3>정기배송 1위 생리대</h3>
+          <h2>유기농 생리대 때맞춰<br>배송하는 해피문데이</h2>
+          <a href="/subscription" class="button_start">정기배송 신청하기</a>
+        </div>
+      </div>
+
+    </div>
+</div>
+
+    <!-- Cover -->
+    <div class="cover_container" style="display: none;">
+      <div class="cover_title_container">
+        <h3>정기배송 1위 생리대</h3>
+        <h2>유기농 생리대 때맞춰<br>배송하는 해피문데이</h2>
+        <a href="/subscription" class="button_start">정기배송 신청하기</a>
+      </div>
+      <div id="chevron_down" class="chevron_down">&darr;</div>
+    </div>
+
+    <!-- Product Introduce -->
+    <div id="product_intro" class="product_intro_container">
+      <div class="image">
+        <img src="/static/images/main_product_detail.png" class="main_product_detail">
+      </div>
+      <div class="text">
+        <h2>나와 친구를 위해 만든 생리대</h2>
+        <p class="desc">인증된 안전한 재료로 생리대를 만들었습니다.<br>아무거나 쓰지 말고, 해피문데이와 함께 해요.</p>
+        <a href="/product" class="button_go">제품 상세 보기</a>
+      </div>
+    </div>
+
+    <!-- Subscription -->
+    <div class="cover_container_subscription">
+      <div class="cover_wrap">
+        <div class="cover_title_container">
+          <h2>맞춤형 정기배송</h2>
+          <p class="desc">나만의 패키지를 구성해보세요!<br>월경주기마다 챙겨 보낼게요.</p>
+          <a href="/subscription/" class="button_apply">정기배송 시작</a>
+          <p class="shipping_free">(무료배송)</p>
+        </div>
+      </div>
+    </div>
+
+    <!--  Trial & Store  -->
+    <div class="trial_store_container">
+      <a href="/experience/" class="trial">
+        <h2>체험팩</h2>
+        <p>사용해보는 것만큼 확실한 건 없죠</p>
+      </a>
+      <a href="/store/pad" class="store">
+        <h2>스토어</h2>
+        <p>마음껏 담아보세요</p>
+      </a>
+    </div>
+
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/jquery.bxslider.js"></script>
+<script>
+$(function(){
+    $('.bxslider').bxSlider();
+    });
+</script>
+{% endblock%}
