@@ -1,0 +1,56 @@
+body{
+    background: #f9f9f5;
+    font-weight: 200;
+}
+.top{
+    text-align: center;
+    margin: 50px 0;
+}
+.top h1{
+
+    font-weight: normal;
+    font-size: 36px;
+}
+.btn{
+    padding: 10px 30px;
+    margin-top: 10px;
+    margin-left: 80px;
+    font-size: 22px;
+    background: #f59f02;
+    color: white;
+    border: 1px solid white;
+    border-radius: 3px;
+
+}
+.create_wrap{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.create_container{
+    background: white;
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid #e9ecef;
+    border-radius: 2px;
+    width: 50%;
+}
+#star{
+    width: 50%;
+}
+table{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+tbody{
+    width: 90%;
+}
+td{
+    padding: 10px 10px;
+
+}
+.title{
+    width: 100%;
+}

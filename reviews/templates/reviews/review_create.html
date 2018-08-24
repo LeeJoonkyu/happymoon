@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block css %}
+    <link rel="stylesheet" href="/static/css/reviews/review_create.css">
+{% endblock %}
+
+{% block main %}
+<div class="top">
+    <h1>해피문데이 실사용자 리뷰</h1>
+</div>
+
+<div class="create_wrap">
+    <div class="create_container">
+        <form method="post">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>별점</td>
+                    <td>
+                        <select name="star" id="star">
+                            <option value=1>1</option>
+                            <option value=2>2</option>
+                            <option value=3>3</option>
+                            <option value=4>4</option>
+                            <option value=5>5</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>제목</td>
+                    <td><input name="title" type="text" class="title" placeholder="제목" id="title"></td>
+                </tr>
+                <tr>
+                    <td>내용</td>
+                    <td><textarea name="content" class="content" row="5" placeholder="내용"  id="content"></textarea></td>
+                </tr>
+            </table>
+            <button class="btn" type="submit"> 리뷰남기기 </button>
+        </form>
+    </div>
+
+</div>
+
+
+
+{% endblock %}
+
+
+
+

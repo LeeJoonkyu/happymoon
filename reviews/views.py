@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from .models import Review, Review_Comment
 from django.core.paginator import Paginator
 
@@ -19,6 +20,7 @@ from django.core.paginator import Paginator
 # django paginiatior
 def review_list(request):
     all_reviews = Review.objects.all()
+    all_reviews = all_reviews.order_by('-id')
     paginator = Paginator(all_reviews, 5)
 
     page = request.GET.get('page')
@@ -27,3 +29,21 @@ def review_list(request):
         'reviews': reviews,
     }
     return render(request, 'reviews/review_list.html', ctx)
+
+
+def review_create(request):
+    if request.method == "POST":
+        star = request.POST.get('star')
+        title = request.POST.get('title')
+        content = request.POST.get('content')
+        review = Review()
+        review.user = request.user
+        review.star = star
+        review.title = title
+        review.content = content
+        review.save()
+        return redirect(reverse('reviews:review_list'))
+
+    if not request.user.is_authenticated:
+        return redirect(reverse("accounts:login"))
+    return render(request, 'reviews/review_create.html')
