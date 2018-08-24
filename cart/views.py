@@ -108,6 +108,10 @@ def pay_complete(request):
     myorder.imp_uid = imp_uid
     myorder.save()
 
+    # 장바구니 비우기
+    Cart_for_Pad.objects.filter(user=request.user).delete()
+
+
     product_price = myorder.amount
     if not iamport.is_paid(product_price, imp_uid=imp_uid):
         # 결제실패

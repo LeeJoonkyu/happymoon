@@ -43,9 +43,10 @@ def signin(request):
 
             user = authenticate(username=username, password=password)
             if user:
-                login_and_redirect_next(request, user)
-                # login(request, user)
-                # return redirect('store_pad:pad_list')
+                # 이메일인증 smtp
+                #login_and_redirect_next(request, user)
+                login(request, user)
+                return redirect('store_pad:pad_list')
             else:
                 num = 0
                 for person in User.objects.all():
