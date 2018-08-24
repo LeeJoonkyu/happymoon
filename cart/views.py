@@ -18,24 +18,47 @@ def cart(request):
         if request.user.is_authenticated:
             return redirect(reverse("cart:payment"))
         else:
-            # TODO : 익명user 장바구니 사용
             return redirect(reverse("accounts:login"))
 
-    cart_products = Cart_for_Pad.objects.filter(user=request.user)
-    ulti_total_price= 0
-    for item in cart_products:
-        ulti_total_price += item.total_price
-    if ulti_total_price<20000:
-        shipping_charge = 2500
+    if (request.method == 'POST') and (request.POST.get('post_type') == 'select'):
+        checked = request.POST.getlist('checked')
+        for i in range(1, len(checked)+1):
+            if (Cart_for_Pad.objects.get(id=checked[i-1])):
+                    Cart_for_Pad.objects.get(id=checked[i-1]).delete()
+
+
+    if request.user.is_authenticated:
+        cart_products = Cart_for_Pad.objects.filter(user=request.user)
+        ulti_total_price = 0
+        for item in cart_products:
+            ulti_total_price += item.total_price
+        if ulti_total_price < 20000:
+            shipping_charge = 2500
+        else:
+            shipping_charge = 0
+        amount = (ulti_total_price + shipping_charge)
+        ctx = {
+            'cart_products': cart_products,
+            'ulti_total_price': ulti_total_price,
+            'shipping_charge': shipping_charge,
+            'amount': amount,
+            }
     else:
-        shipping_charge = 0
-    amount = (ulti_total_price + shipping_charge)
-    ctx = {
-        'cart_products': cart_products,
-        'ulti_total_price': ulti_total_price,
-        'shipping_charge': shipping_charge,
-        'amount': amount,
-    }
+        cart_products = Cart_for_Pad.objects.filter(user=None)
+        ulti_total_price = 0
+        for item in cart_products:
+            ulti_total_price += item.total_price
+        if ulti_total_price < 20000:
+            shipping_charge = 2500
+        else:
+            shipping_charge = 0
+        amount = (ulti_total_price + shipping_charge)
+        ctx = {
+            'cart_products': cart_products,
+            'ulti_total_price': ulti_total_price,
+            'shipping_charge': shipping_charge,
+            'amount': amount,
+        }
     return render(request, "cart.html", ctx)
 
 

@@ -41,14 +41,14 @@
             </tbody> 
           </table>
           
-          <form action="" method="post">
+          <form action="" method="post" onsubmit="return validation()">
               {% csrf_token %}
               <div class="order">
                 <label for="order">수량</label>
-                <input name="order" type="order" class="order">
+                <input name="order" id="order" type="order" class="order">
+                  <p id="order_error" class="error_message"> </p>
                     <button type="submit" id="add_to_cart" class="button_cart">
-                        <div>장바구니 담기 -</div>
-                        <div id="cart_price" class="cart_price">{{ product.price }}*{{ product.order }}원</div>
+                        <div>장바구니 담기 </div>
                     </button>
               </div>
 
@@ -137,4 +137,19 @@
       <div class="cover_right"></div>
     </div>
   </main>
+
+
+    <script src="/static/js/jquery.js"></script>
+
+<script>
+
+function validation(){
+
+var order = document.getElementById('order').value;
+if(order == "") {
+    document.getElementById('order_error').innerHTML =" 수량을 1 이상 입력하세요.";
+    return false;
+}}
+</script>
+
 {% endblock %}

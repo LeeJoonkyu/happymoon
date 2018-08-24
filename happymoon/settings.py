@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     'cart',
     'notice_list',
     'reviews',
-
+    'main',
     'el_pagination',
 ]
 
@@ -149,7 +149,6 @@ DEFAULT_TEST_IMP_KEY = 'imp_apikey'
 DEFAULT_TEST_IMP_SECRET = ('ekKoeW8RyKuT0zgaZsUtXXTLQ4AhPFW3ZGseDA6bkA5lamv9O'
                            'qDMnxyeB9wqOsuO9W3Mx9YSJ4dTqJ3f')
 
-<<<<<<< HEAD
 
 # 이메일인증 smtp
 EMAIL_HOST = 'smtp.gmail.com'
@@ -157,8 +156,6 @@ EMAIL_HOST_USER = 'pirogramming@gmail.com'
 EMAIL_HOST_PASSWORD = 'django1!'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-=======
 USE_TZ = True
 TIME_ZONE = 'Asia/Seoul'
 
->>>>>>> 0343c13450c15cb1b955b29aff378f68ccceed17

@@ -146,13 +146,12 @@ input {
   font-size: 0.875rem;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-appearance: none;
   padding: 7px;
   border: 1px solid #ced4da;
 }
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
+
   margin: 0;
 }
 input[type=checkbox] {

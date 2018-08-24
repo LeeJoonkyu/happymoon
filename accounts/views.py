@@ -21,7 +21,8 @@ def information_create_view(request):
             information.birth_day = request.POST.get('birth_day')
             information.channel = request.POST.get('channel')
             information.referral_code = request.POST.get('referral_code')
-            if information.name and information.birth_year and information.birth_month and information.birth_day and information.channel is not None:
+            if information.name and information.birth_year and information.birth_month and information.birth_day and\
+                    information.channel is not None:
                 user = User.objects.create_user(username=information.email, password=request.POST.get('password'))
                 information.user = user
                 information.save()

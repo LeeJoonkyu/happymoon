@@ -16,6 +16,7 @@ def product_list(request):
 def product_detail(request, pk):
     product = Product.objects.get(pk=pk)
     if request.method == 'POST':
+
         user = request.user
         order = request.POST.get('order')
         total_price = int(product.price) * int(order)
@@ -28,6 +29,32 @@ def product_detail(request, pk):
         )
 
         return  redirect(reverse('cart:cart'))
+
+        if request.user.is_authenticated:
+            user = request.user
+            order = request.POST.get('order')
+            total_price = int(product.price) * int(order)
+            print(total_price)
+            cart = Cart_for_Pad.objects.create(
+                user = user,
+                product = product,
+                order = order,
+                total_price = total_price,
+                )
+        else:
+            user= None
+            order = request.POST.get('order')
+            total_price = int(product.price) * int(order)
+            print(total_price)
+            cart = Cart_for_Pad.objects.create(
+                user=user,
+                product=product,
+                order=order,
+                total_price=total_price,
+            )
+
+            return redirect(reverse('cart:cart'))
+
 
     else:
         random_num=[]
