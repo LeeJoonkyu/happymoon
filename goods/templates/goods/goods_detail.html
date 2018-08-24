@@ -1,10 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% extends 'base.html'%}
 
-</body>
-</html>
+{% block css%}
+  <link rel="stylesheet" href="/static/css/store/css_product_detail.css">
+{% endblock%}
+
+
+{% block main %}
+  <main>
+    <div class="store_nav">
+      <div class="nav_container">
+        <h2 class="nav_left">스토어</h2>
+        <div class="nav_category">
+          <a href="/store/pad/" style="border-bottom:1px solid #000;">생리대</a>
+          <a href=>굿즈</a>
+          <a href=>정기배송</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Goods Detail-->
+    <div class="product_container">
+      <div class="product_wrap">
+        <div class="photo_container">
+          <div>
+            <img src="{{ product.img_front.url }}" width=570px;>
+          </div>
+        </div>
+        <div class="spec_container">
+          <h2>{{ product.name }}</h2>
+          <p id="price">{{ product.price }}원</p>
+          <p class="description">{{ product.detail }}</p>
+          <table class="spec">
+            <tbody>
+              <tr><td>월경량</td><td>{{ product.volume }}</td></tr>
+              <tr><td>사이즈</td><td>{{ product.size }}mm</td></tr>
+              <tr><td>제조일자</td><td>{{ product.manufac_date }}</td></tr>
+              <tr><td>사용기한</td><td>{{ product.useby_date }}</td></tr>
+              <tr><td>1팩당 개수</td><td>{{ product.quantity }}</td></tr>
+              <tr><td class="ingre">주요성분</td><td class="ingre">{{ product.ingre }}</td></tr>
+            </tbody> 
+          </table>
+          
+          <form action="" method="post">
+              {% csrf_token %}
+              <div class="order">
+                <label for="order">수량</label>
+                <input name="order" type="order" class="order">
+                <button type="submit" id="add_to_cart" class="button_cart">
+                  <div>장바구니 담기 -</div>
+                  <div id="cart_price" class="cart_price">{{ product.price }}*{{ product.order }}원</div>
+                </button>
+              </div>
+
+          </form>
+          {% comment %} <table class="quantity">
+            <tbody><tr>
+              <td class="text">수량</td>
+              <td class="qty">
+                <div class="qty_button">
+                  <input type="button" value="-" class="qty_minus" onfocus="this.blur();">
+                  <input type="number" step="1" min="1" value="1" class="qty_number" size="4" pattern="[0-9]*" inputmode="numeric" readonly="readonly" onfocus="this.blur();">
+                  <input type="button" value="+" class="qty_plus" onfocus="this.blur();">
+                </div>
+              </td>
+            </tr></tbody>
+          </table> {% endcomment %}
+          
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Detail Description -->
+    <div class="detail_description">
+      <div class="row1">
+        <div class="pic1">
+          <img src="/static/images/store/store_detail_photo1.jpg">
+        </div>
+        <div class="txt1">
+          <img id="txt1_1" src="/static/images/store/store_detail_text1.png">
+          <img id="txt1_2" src="/static/images/store/mark_ocs.png">
+        </div>
+      </div>
+      <div class="row2">
+        <div class="txt2">
+          <img id="txt2_1" src="/static/images/store/store_detail_text2.png">
+          <div id="txt2_2_button_wrap">
+            <div id="txt2_2_button">제품 상세보기</div>
+          </div>
+        </div>
+        <div class="pic2">
+          <img src="/static/images/store/store_detail_photo2.jpg">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Detail Photo -->
+    <div class="detail_photo">
+      <h1>DETAIL</h1>
+      <img src="{{ product.img_front.url }}">
+      <img src="{{ product.img_back.url }}">
+      <img src=" {{ product.img_inner.url }}">
+      <img src="{{ product.img_side.url }}">
+    </div>
+
+    <!-- Recommend Items -->
+    <div class="recommend_items">
+      <h1>이 제품도 써보세요</h1>
+      <div class="recommend_items_wrap">
+        {% for item in products %}
+          <a href="">
+            <img src="{{ item.img_front.url }}">
+            <p>{{ item.name }}</p>
+            <p>{{ item.price }}원</p>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+
+
+    <!-- Subscription Banner -->
+    <div class="banner_subscription">
+      <div class="cover_left"></div>
+      <div class="cover_wrap">
+        <div class="cover_title_container">
+          <p>
+          안심하고 쓸 수 있는<br>
+          유기농 생리대로<br>
+          월경주기에 맞춰 배송합니다.<br>
+          </p>
+          <a href="">정기배송 시작하기</a>
+          <p class="shipping_free">(무료배송)</p>
+        </div>
+      </div>
+      <div class="cover_right"></div>
+    </div>
+  </main>
+{% endblock %}

@@ -26,7 +26,9 @@ def product_detail(request, pk):
             order = order,
             total_price = total_price,
         )
+
         return  redirect(reverse('cart:cart'))
+
     else:
         random_num=[]
         for i in range(1,len(Product.objects.all())+1):

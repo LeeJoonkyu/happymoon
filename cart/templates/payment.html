@@ -31,12 +31,10 @@
             {% endfor %}
 
         </table>
-
         <a href="{% url "cart:cart" %}">
             <button>주문 변경</button>
         </a>
     </div>
-
 
      <form action="" method="POST">
         {% csrf_token %}
@@ -73,7 +71,9 @@
                 </tr>
                 <tr>
                     <!--TODO: 휴대폰인증-->
+
                     <td>휴대폰번호</td>
+
                     <td>{{ form.recipient_tel }}</td>
                 </tr>
                 <tr>
@@ -98,13 +98,12 @@
 {#                    <td>{{ form.recipient_add }}</td>#}
 
                 <tr>
+
                     <td>배송 메모 (선택)</td>
                     <td>{{ form.recipient_memo }}</td>
                 </tr>
             </table>
         </div>
-
-        <!-- 할인 수단 -->
 
         <!--  결제하기 -->
         <div class="pay">
@@ -114,12 +113,15 @@
                     <tr><td>총 상품가격</td><td>{{ ulti_total_price }}원</td></tr>
                     <tr><td>배송비</td><td>{{ shipping_charge }}원</td></tr>
                     <tr><td>총 결제금액</td><td>{{ amount }}</td></tr>
+
                 </tbody>
+
             </table>
             <input type='hidden' name='post_type' value='pay' />
             <button type="submit" class="">결제하기</button>
         </div>
     </form>
+
 
 
 </div>
@@ -164,4 +166,5 @@
             }).open();
         }
     </script>
+
 {% endblock %}

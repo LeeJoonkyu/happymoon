@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 """
 
 import os, re
+from django.conf.global_settings import TEMPLATES
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -42,9 +44,10 @@ INSTALLED_APPS = [
     'goods',
     'subscription',
     'cart',
+    'notice_list',
     'reviews',
-    'el_pagination',
 
+    'el_pagination',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +75,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.request',  ## For EL-pagination
             ],
         },
     },
@@ -145,6 +149,7 @@ DEFAULT_TEST_IMP_KEY = 'imp_apikey'
 DEFAULT_TEST_IMP_SECRET = ('ekKoeW8RyKuT0zgaZsUtXXTLQ4AhPFW3ZGseDA6bkA5lamv9O'
                            'qDMnxyeB9wqOsuO9W3Mx9YSJ4dTqJ3f')
 
+<<<<<<< HEAD
 
 # 이메일인증 smtp
 EMAIL_HOST = 'smtp.gmail.com'
@@ -152,3 +157,8 @@ EMAIL_HOST_USER = 'pirogramming@gmail.com'
 EMAIL_HOST_PASSWORD = 'django1!'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+=======
+USE_TZ = True
+TIME_ZONE = 'Asia/Seoul'
+
+>>>>>>> 0343c13450c15cb1b955b29aff378f68ccceed17
