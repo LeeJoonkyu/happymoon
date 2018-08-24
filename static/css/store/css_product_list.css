@@ -46,6 +46,9 @@
   padding: 30px 5px;
   max-width: calc(100%/3 - 50px);
 }
+p{
+  margin: 3px;
+}
 
 /* banner_subscription */
 .banner_subscription{

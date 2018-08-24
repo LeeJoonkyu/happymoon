@@ -87,7 +87,9 @@ main{
   border: none;
   cursor: pointer;
 }
-
+.order input{
+  margin-left: 10px;
+}
 /* Detail Description */
 .row1{
   display: flex;
