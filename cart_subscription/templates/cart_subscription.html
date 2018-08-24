@@ -16,9 +16,6 @@
 
         <div class="list_container">
 
-        {% if cart_subscriptions %}
-            {% for cart_subscription in cart_subscriptions %}
-
             <div class="list_head">
                 <div class="name">상품</div>
                 <div class="qty">수량</div>
@@ -38,9 +35,12 @@
 
             <div class="list_item">
                 <div class="name_price_container">
-                    <div class="thumbnail"><img src="/static/images/ic_calendar.png"></div>
+                    <div class="thumbnail"><img src="/static/images/ic_calendar.png" class="ic_date"></div>
                     <div class="name">
-                        첫 발송일: {{ cart_subscription.first_date }}
+                        첫 발송일: <script language="JavaScript">
+                                      var today = new Date()
+                                      document.write(today.getYear()+1900, "년 ", today.getMonth()+1, "월 ", today.getDate()+1, '일')
+                                   </script>
                         <br>
                         배송주기: {{ cart_subscription.delivery_period}}</div>
                 </div>
@@ -48,13 +48,221 @@
                 <div class="item_total"></div>
             </div>
 
-            <a href="../subscription_detail/HM-{{ cart_subscription.type_str }}" class="button_gray">주문 변경</a>
-
-                {% endfor %}
-            {% endif %}
+            <a href="/subscription_detail/HM-{{ cart_subscription.type_str }}" class="button_gray">주문 변경</a>
 
         </div>
-    </div>
+
+     <form action="" method="POST">
+        {% csrf_token %}
+        <!-- 주문자 정보 -->
+        <div class="user_info">
+            <h2>주문자 정보</h2>
+            <table>
+                <tr>
+                    <td>이름</td>
+                    <td>{{ form.buyer_name }}</td>
+                </tr>
+                <tr>
+                    <td>이메일</td>
+                    <td>{{ form.buyer_email }}</td>
+                </tr>
+                <tr>
+                    <td>휴대폰번호</td>
+                    <td>{{ form.buyer_tel }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.name }}</td>
+                    <td>{{ form.amount }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- 배송지 정보 -->
+        <div class="address_info">
+            <h2>배송지 정보</h2>
+            <table>
+                <tr>
+                    <td>이름</td>
+                    <td>{{ form.recipient_name }}</td>
+                </tr>
+                <tr>
+                    <!--TODO: 휴대폰인증-->
+                    <td>휴대폰번호</td>
+                    <td>{{ form.recipient_tel }}</td>
+                </tr>
+                <tr>
+                    <!--TODO: 주소API-->
+                    <td>주소</td>
+                    <td>
+                        <input name="recipient_postcode" type="text" id="sample6_postcode" placeholder="우편번호">
+                        <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td><input name="recipient_add" type="text" id="sample6_address" placeholder="주소"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input name="recipient_adddetail" type="text" id="sample6_address2" placeholder="상세주소"></td>
+                </tr>
+
+{#                    <td>{{ form.recipient_postcode }}</td>#}
+{#                    <td>{{ form.recipient_add }}</td>#}
+
+                <tr>
+                    <td>배송 메모 (선택)</td>
+                    <td>{{ form.recipient_memo }}</td>
+                </tr>
+            </table>
+        </div>
+
+         <!-- 할인 수단 -->
+
+        <!--  결제하기 -->
+        <div class="pay">
+            <h2>최종 결제금액</h2>
+            <table class="total_price">
+                <tbody>
+                    <tr><td>총 상품가격</td><td>{{ cart_subscription.price }}원</td></tr>
+                    <tr><td>배송비</td><td>무료</td></tr>
+                    <tr><td>총 결제금액</td><td>{{ cart_subscription.price }}원</td></tr>
+                </tbody>
+            </table>
+            <input type='hidden' name='post_type' value='pay'>
+            <button type="submit" class="">결제하기</button>
+        </div>
+    </form>
+
+
+</div>
+
+    <!-- 다음주소 API -->
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+    <script>
+        function sample6_execDaumPostcode() {
+            new daum.Postcode({
+                oncomplete: function(data) {
+                    // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+                    // 각 주소의 노출 규칙에 따라 주소를 조합한다.
+                    // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                    var fullAddr = ''; // 최종 주소 변수
+                    var extraAddr = ''; // 조합형 주소 변수
+                    // 사용자가 선택한 주소 타입에 따라 해당 주소 값을 가져온다.
+                    if (data.userSelectedType === 'R') { // 사용자가 도로명 주소를 선택했을 경우
+                        fullAddr = data.roadAddress;
+                    } else { // 사용자가 지번 주소를 선택했을 경우(J)
+                        fullAddr = data.jibunAddress;
+                    }
+                    // 사용자가 선택한 주소가 도로명 타입일때 조합한다.
+                    if(data.userSelectedType === 'R'){
+                        //법정동명이 있을 경우 추가한다.
+                        if(data.bname !== ''){
+                            extraAddr += data.bname;
+                        }
+                        // 건물명이 있을 경우 추가한다.
+                        if(data.buildingName !== ''){
+                            extraAddr += (extraAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                        }
+                        // 조합형주소의 유무에 따라 양쪽에 괄호를 추가하여 최종 주소를 만든다.
+                        fullAddr += (extraAddr !== '' ? ' ('+ extraAddr +')' : '');
+                    }
+                    // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                    document.getElementById('sample6_postcode').value = data.zonecode; //5자리 새우편번호 사용
+                    document.getElementById('sample6_address').value = fullAddr;
+                    // 커서를 상세주소 필드로 이동한다.
+                    document.getElementById('sample6_address2').focus();
+                }
+            }).open();
+        }
+    </script>
+
+        <!-- Shipping Detail -->
+
+{#        <form action="" method="post">#}
+{#            <div class="shipping_container">#}
+{##}
+{#                <input type="hidden">#}
+{#                <input type="hidden" name="post_type" value="payment">#}
+{#                <input type="hidden" id="purchase_type" name="purchase_type" value="subscription">#}
+{##}
+{#                <div class="column-shipping">#}
+{#                    <!-- Order User -->#}
+{#                    <h3>#}
+{#                        <div class="shipping_circle">#}
+{#                            <img src="/static/images/ic_payment_order_user.png">#}
+{#                        </div>#}
+{#                        주문자 정보#}
+{#                    </h3>#}
+{#                    <div class="deliver_option_wrap">#}
+{#                        <div class="deliver_option_half">#}
+{#                            <p class="label">이름<span class="required">*</span></p>#}
+{#                            <input type="text" id="name" name="name" placeholder="이름" maxlength="20" class="input_default" value="이름">#}
+{#                        </div>#}
+{#                        <div class="deliver_option_half">#}
+{#                            <p class="label">이메일<span class="required">*</span></p>#}
+{#                            <input type="email" id="email" name="email" placeholder="이메일" maxlength="100" class="input_default" value="이메일">#}
+{#                        </div>#}
+{#                        <div class="deliver_option_half">#}
+{#                            <p class="label">휴대폰번호<span class="required">*</span></p>#}
+{#                            <input type="tel" id="phone" name="phone" placeholder="- 없이 숫자만 입력해주세요" maxlength="11" class="input_default_phone numbersOnly">#}
+{#                            <div id="button_phone_verification_request" class="button_phone_certify">인증요청</div>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Destination -->#}
+{#                    <h3>#}
+{#                        <div class="shipping_circle">#}
+{#                            <img src="/static/images/ic_payment_destination.png">#}
+{#                        </div>#}
+{#                        배송지 정보#}
+{#                    </h3>#}
+{#                    <div class="deliver_option_wrap">#}
+{#                        <div class="deliver_option_half">#}
+{#                            <p class="label">이름<span class="required">*</span></p>#}
+{#                            <p id="error_name_len" class="error_message" style="display: none;">#}
+{#                                이름을 2글자 이상 입력해주세요.#}
+{#                            </p>#}
+{#                            <input type="text" id="recipient_name" name="recipient_name" placeholder="이름" maxlength="20" class="input_default" value="이름">#}
+{#                        </div>#}
+{#                        <div class="deliver_option_half">#}
+{#                            <p class="label">휴대폰번호<span class="required">*</span></p>#}
+{#                            <input type="tel" id="recipient_phone" name="recipient_phone" placeholder="- 없이 숫자만 입력해주세요" maxlength="11" class="input_default">#}
+{#                        </div>#}
+{#                        <div class="deliver_option">#}
+{#                            <p class="label">주소<span class="required">*</span></p>#}
+{#                            <p id="error_addr_check" class="error_message" style="display: none;">#}
+{#                                우편번호 찾기를 진행해주세요.#}
+{#                            </p>#}
+{#                            <input type="text" id="zip_code" name="zip_code" placeholder="우편번호" maxlength="6" class="input_default_post" value readonly="readonly">#}
+{#                            <input type="button" onclick="execDaumPostcode()" value="우편번호 찾기" class="button_find_post">#}
+{#                            <br>#}
+{#                            <div id="wrap" style="display: none;position:relative;" ></div>#}
+{#                            <input type="text" id="address_1" name="address_1" placeholder="주소" maxlength="120" class="input_default" value readonly="readonly">#}
+{#                            <input type="text" id="address_1" name="address_2" placeholder="상세주소" maxlength="120" class="input_default" value>#}
+{#                            <p class="label">배송 메모 (선택)</p>#}
+{#                            <input type="text" id="delivery_message" name="delivery_message" placeholder="배송메시지" maxlength="50" class="input_default" value>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                    <!-- Discount 여기 하는 중이었음 -->#}
+{#                    <h3></h3>#}
+{#                    <div class="deliver_option_wrap">#}
+{##}
+{#                    </div>#}
+{##}
+{##}
+{#                </div>#}
+{##}
+{#                <div class="column-payment">#}
+{#                    <div id="total_order_summary_container" class="total_order_summary_container">#}
+{##}
+{#                    </div>#}
+{#                </div>#}
+{##}
+{#            </div>#}
+{#        </form>#}
+
 </div>
 
 {%  endblock %}
