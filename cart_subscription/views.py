@@ -16,8 +16,8 @@ iamport = Iamport(imp_key=settings.DEFAULT_TEST_IMP_KEY,
 def cart_subscription(request, str):
     cart_subscriptions = Cart_for_Subscription.objects.filter(type_str=str)
     buyer = get_object_or_404(Information, user=request.user)
-    name = cart_subscriptions[2]
-    amount = cart_subscriptions[6]
+    name = cart_subscriptions[2] # 상품이름
+    amount = cart_subscriptions[6] # 상품개수
     buyer_name = buyer.name
     buyer_email = buyer.email
     initial = {'name': name, 'amount': amount, 'buyer_name': buyer_name, 'buyer_email': buyer_email}
