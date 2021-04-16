@@ -6,7 +6,7 @@ chardet==3.0.4
 decorator==4.3.0
 Django==2.2.10
 django-bootstrap3==10.0.1
-django-debug-toolbar==1.9.1
+django-debug-toolbar==1.11.1
 django-el-pagination==3.2.4
 django-extensions==2.1.0
 entrypoints==0.2.3
